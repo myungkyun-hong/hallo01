@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="楽しい書道教室は、子どもから大人まで楽しく学べる書道教室です。完全マンツーマン指導で、初心者から経験者まで丁寧にサポートします。臨書・創作・実用書道コースをご用意しています。">
+  <meta name="keywords" content="書道教室,書道,習字,マンツーマン,初心者,臨書,創作書道,実用書道,子ども書道,大人書道">
+  <meta property="og:title" content="楽しい書道教室 | 子どもから大人まで楽しく学べる書道">
+  <meta property="og:description" content="筆の持ち方から展覧会出品まで。あなたのペースで、墨の世界を探求しましょう。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1695562322876-31c63ccf2049?w=1200&h=630&q=85&fm=webp&fit=crop">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>楽しい書道教室 | 子どもから大人まで楽しく学べる書道教室</title>
+
+  <!-- Favicon (SVG emoji) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖌</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <!-- Tailwind CSS v4 -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Custom Theme & Base Styles -->
+  <style type="text/tailwindcss">
+    @theme {
+      --color-ink:             #1a1a2e;
+      --color-ink-light:       #2d2d4e;
+      --color-cream:           #faf8f3;
+      --color-parchment:       #f0ead8;
+      --color-vermillion:      #c0392b;
+      --color-vermillion-dark: #96281b;
+      --color-gold:            #b8960c;
+      --color-sumi:            #4a4a5a;
+      --color-mist:            #d4cfc4;
+      --font-serif: 'Noto Serif JP', serif;
+      --font-sans:  'Noto Sans JP', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: var(--font-sans);
+    }
+
+    body {
+      background-color: var(--color-cream);
+      color: var(--color-sumi);
+    }
+
+    /* Scroll margin for fixed nav */
+    section[id] {
+      scroll-margin-top: 80px;
+    }
+
+    /* Nav transition */
+    #site-header {
+      transition: background 300ms ease, backdrop-filter 300ms ease;
+    }
+    #site-header.scrolled {
+      background: rgba(26, 26, 46, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* Mobile menu transition */
+    #mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 400ms ease, opacity 300ms ease;
+      opacity: 0;
+    }
+    #mobile-menu.open {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    /* FAQ chevron rotation */
+    details[open] .faq-chevron {
+      transform: rotate(180deg);
+    }
+    .faq-chevron {
+      transition: transform 300ms ease;
+    }
+
+    /* Gallery lightbox */
+    #lightbox {
+      display: none;
+    }
+    #lightbox.active {
+      display: flex;
+    }
+
+    /* Section divider */
+    .gold-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--color-gold);
+      margin: 0 auto;
+    }
+
+    /* Scroll indicator bounce */
+    .scroll-indicator {
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-12px); }
+      60% { transform: translateY(-6px); }
+    }
+
+    /* Form error state */
+    .field-error {
+      border-color: var(--color-vermillion) !important;
+    }
+    .error-msg {
+      color: var(--color-vermillion);
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    /* Active nav link */
+    .nav-link-active {
+      color: #f8b4ae !important;
+    }
+
+    /* Heading serif style */
+    .heading-serif {
+      font-family: var(--font-serif);
+      color: var(--color-ink-light);
+    }
+
+    /* Pricing card highlight */
+    .pricing-featured {
+      border: 2px solid var(--color-vermillion);
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50">
+    <nav aria-label="メインナビゲーション" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-2 text-white hover:opacity-80 transition-opacity">
+          <i data-lucide="pen-line" class="w-6 h-6 text-yellow-300"></i>
+          <span class="font-serif text-lg font-medium tracking-wide" style="font-family: var(--font-serif)">楽しい書道教室</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <ul class="hidden lg:flex items-center gap-6 text-sm text-white">
+          <li><a href="#about" class="nav-link hover:text-yellow-200 transition-colors">教室について</a></li>
+          <li><a href="#features" class="nav-link hover:text-yellow-200 transition-colors">特徴</a></li>
+          <li><a href="#courses" class="nav-link hover:text-yellow-200 transition-colors">コース</a></li>
+          <li><a href="#beginners" class="nav-link hover:text-yellow-200 transition-colors">初心者の方へ</a></li>
+          <li><a href="#schedule" class="nav-link hover:text-yellow-200 transition-colors">日程・料金</a></li>
+          <li><a href="#gallery" class="nav-link hover:text-yellow-200 transition-colors">ギャラリー</a></li>
+          <li><a href="#contact" class="bg-vermillion hover:bg-vermillion-dark text-white px-4 py-2 rounded-sm text-sm transition-colors">無料体験</a></li>
+        </ul>
+
+        <!-- Mobile hamburger button -->
+        <button
+          id="mobile-menu-btn"
+          class="lg:hidden text-white p-2"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="メニューを開く"
+        >
+          <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+          <i data-lucide="x" id="close-icon" class="w-6 h-6 hidden"></i>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="lg:hidden bg-ink/95 backdrop-blur-sm">
+        <ul class="flex flex-col py-4 px-2 gap-1 text-white">
+          <li><a href="#about" class="mobile-nav-link block px-4 py-3 hover:bg-white/10 rounded transition-colors">教室について</a></li>
+          <li><a href="#features" class="mobile-nav-link block px-4 py-3 hover:bg-white/10 rounded transition-colors">特徴</a></li>
+          <li><a href="#courses" class="mobile-nav-link block px-4 py-3 hover:bg-white/10 rounded transition-colors">コース</a></li>
+          <li><a href="#beginners" class="mobile-nav-link block px-4 py-3 hover:bg-white/10 rounded transition-colors">初心者の方へ</a></li>
+          <li><a href="#schedule" class="mobile-nav-link block px-4 py-3 hover:bg-white/10 rounded transition-colors">日程・料金</a></li>
+          <li><a href="#gallery" class="mobile-nav-link block px-4 py-3 hover:bg-white/10 rounded transition-colors">ギャラリー</a></li>
+          <li><a href="#contact" class="mobile-nav-link block mx-4 mt-2 bg-vermillion hover:bg-vermillion-dark text-center py-3 rounded transition-colors">無料体験申し込み</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== SECTION 1: HERO ===== -->
+    <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center text-center text-white overflow-hidden">
+      <!-- Background image -->
+      <div
+        class="absolute inset-0 bg-cover bg-center"
+        style="background-image: url('https://images.unsplash.com/photo-1695562322876-31c63ccf2049?w=1920&q=85&fm=webp&fit=crop');"
+        role="img"
+        aria-label="書道の背景画像"
+      ></div>
+      <!-- Overlay gradient -->
+      <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(26,26,46,0.6) 0%, rgba(26,26,46,0.75) 100%);"></div>
+
+      <!-- Hero content -->
+      <div class="relative z-10 px-4 max-w-4xl mx-auto">
+        <p class="text-yellow-300 text-sm tracking-[0.3em] uppercase mb-4 animate__animated animate__fadeInDown">
+          書道の喜びを、あなたへ。
+        </p>
+        <h1 class="heading-serif text-5xl sm:text-6xl lg:text-7xl font-light text-white mb-6 animate__animated animate__fadeInDown animate__delay-1s" style="font-family: var(--font-serif); letter-spacing: 0.15em;">
+          楽しい書道教室
+        </h1>
+        <p class="text-lg sm:text-xl text-white/85 mb-10 animate__animated animate__fadeInUp animate__delay-1s" style="letter-spacing: 0.05em;">
+          子どもから大人まで、墨の世界へようこそ
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center animate__animated animate__fadeIn animate__delay-2s">
+          <a href="#contact" class="bg-vermillion hover:bg-vermillion-dark text-white px-8 py-4 rounded-sm text-base transition-all hover:-translate-y-0.5 hover:shadow-lg font-medium">
+            無料体験に申し込む
+          </a>
+          <a href="#courses" class="border border-white/70 hover:border-white text-white hover:bg-white/10 px-8 py-4 rounded-sm text-base transition-all font-medium">
+            コースを見る
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll down indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 scroll-indicator">
+        <i data-lucide="chevrons-down" class="w-8 h-8"></i>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 2: ABOUT ===== -->
+    <section id="about" class="py-24 bg-cream">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+          <!-- Left: image -->
+          <div class="relative" data-aos="fade-right" data-aos-duration="800">
+            <img
+              src="https://images.unsplash.com/photo-1576437660573-a33d2a2f93d3?w=800&q=80&fm=webp&fit=crop"
+              alt="書道の筆と墨"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-80 md:h-[480px] object-cover rounded-sm"
+              style="outline: 3px solid var(--color-gold); outline-offset: 10px;"
+            >
+          </div>
+
+          <!-- Right: text -->
+          <div data-aos="fade-left" data-aos-duration="800">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-0.5 h-16 bg-gold"></div>
+              <span class="text-gold text-sm tracking-widest uppercase">About</span>
+            </div>
+            <h2 class="heading-serif text-3xl lg:text-4xl font-light mb-6" style="font-family: var(--font-serif); line-height: 1.6;">
+              墨の美しさ、<br>心の豊かさ
+            </h2>
+            <p class="text-sumi leading-loose mb-4">
+              書道は、文字を書くという行為を超えた芸術です。筆を持ち、墨をすり、白い紙と向き合う。その静かな時間の中で、私たちは自分自身と深く対話します。
+            </p>
+            <p class="text-sumi leading-loose mb-4">
+              「楽しい書道教室」では、お一人おひとりの個性とペースを大切にしながら、書道の本質的な喜びをお伝えします。初めての方も、経験者の方も、それぞれの目標に向かって一緒に歩んでいきましょう。
+            </p>
+            <p class="text-sumi leading-loose mb-8">
+              臨書で古典の美しさを学び、創作で自分だけの表現を見つける。書道は、一生続けられる豊かな趣味です。
+            </p>
+
+            <!-- Quote -->
+            <blockquote class="border-l-4 border-vermillion pl-5 py-2">
+              <p class="heading-serif text-lg italic text-ink-light" style="font-family: var(--font-serif);">
+                「一筆一筆に、心を込めて」
+              </p>
+            </blockquote>
+
+            <div class="gold-divider mt-8" style="margin-left: 0;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 3: FEATURES ===== -->
+    <section id="features" class="py-24 bg-parchment">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section header -->
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span class="text-gold text-sm tracking-widest uppercase">Features</span>
+          <h2 class="heading-serif text-3xl lg:text-4xl font-light mt-3 mb-4" style="font-family: var(--font-serif);">当教室の特徴</h2>
+          <div class="gold-divider"></div>
+        </div>
+
+        <!-- Feature cards -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <div class="bg-cream border border-mist rounded-sm p-8 text-center hover:-translate-y-1 transition-transform duration-200" data-aos="fade-up" data-aos-delay="0">
+            <div class="w-14 h-14 bg-vermillion/10 rounded-full flex items-center justify-center mx-auto mb-5">
+              <i data-lucide="user" class="w-7 h-7 text-vermillion"></i>
+            </div>
+            <h3 class="heading-serif text-lg font-medium mb-3" style="font-family: var(--font-serif);">マンツーマン指導</h3>
+            <p class="text-sumi text-sm leading-relaxed">一人ひとりのペースとスタイルに合わせた完全個別指導。あなただけの授業を提供します。</p>
+          </div>
+
+          <div class="bg-cream border border-mist rounded-sm p-8 text-center hover:-translate-y-1 transition-transform duration-200" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-14 h-14 bg-vermillion/10 rounded-full flex items-center justify-center mx-auto mb-5">
+              <i data-lucide="door-open" class="w-7 h-7 text-vermillion"></i>
+            </div>
+            <h3 class="heading-serif text-lg font-medium mb-3" style="font-family: var(--font-serif);">初心者大歓迎</h3>
+            <p class="text-sumi text-sm leading-relaxed">筆の持ち方から、丁寧にやさしくお教えします。書道が初めての方も安心してご参加ください。</p>
+          </div>
+
+          <div class="bg-cream border border-mist rounded-sm p-8 text-center hover:-translate-y-1 transition-transform duration-200" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-14 h-14 bg-vermillion/10 rounded-full flex items-center justify-center mx-auto mb-5">
+              <i data-lucide="calendar-check" class="w-7 h-7 text-vermillion"></i>
+            </div>
+            <h3 class="heading-serif text-lg font-medium mb-3" style="font-family: var(--font-serif);">柔軟なスケジュール</h3>
+            <p class="text-sumi text-sm leading-relaxed">お仕事やお子様の学校に合わせて、レッスン日時を自由に設定。あなたのライフスタイルに合わせます。</p>
+          </div>
+
+          <div class="bg-cream border border-mist rounded-sm p-8 text-center hover:-translate-y-1 transition-transform duration-200" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-14 h-14 bg-vermillion/10 rounded-full flex items-center justify-center mx-auto mb-5">
+              <i data-lucide="award" class="w-7 h-7 text-vermillion"></i>
+            </div>
+            <h3 class="heading-serif text-lg font-medium mb-3" style="font-family: var(--font-serif);">展覧会への参加</h3>
+            <p class="text-sumi text-sm leading-relaxed">上達された方は、書道展に作品を出品できます。自分の成長を実感できる機会です。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 4: COURSES ===== -->
+    <section id="courses" class="py-24 bg-cream">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section header -->
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span class="text-gold text-sm tracking-widest uppercase">Courses</span>
+          <h2 class="heading-serif text-3xl lg:text-4xl font-light mt-3 mb-4" style="font-family: var(--font-serif);">コースのご紹介</h2>
+          <p class="text-sumi">目標に合わせて選べる3つのコース</p>
+          <div class="gold-divider mt-4"></div>
+        </div>
+
+        <!-- Course cards -->
+        <div class="grid lg:grid-cols-3 gap-8">
+
+          <!-- 臨書コース -->
+          <div class="bg-parchment rounded-sm overflow-hidden hover:-translate-y-1 transition-transform duration-200" data-aos="fade-up" data-aos-delay="0">
+            <div class="h-1 bg-vermillion"></div>
+            <div class="p-8">
+              <div class="text-6xl heading-serif font-light text-ink-light/20 mb-2" style="font-family: var(--font-serif);">臨</div>
+              <h3 class="heading-serif text-xl font-medium mb-1" style="font-family: var(--font-serif);">古典臨書コース</h3>
+              <p class="text-gold text-sm mb-5 tracking-wide">Classical Transcription</p>
+              <p class="text-sumi text-sm leading-relaxed mb-6">
+                王羲之・空海など古今の名筆を学び、書の本質を深く理解します。古典に触れることで、正確な技術と豊かな感性を養います。
+              </p>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start gap-2 text-sm text-sumi">
+                  <i data-lucide="check" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i>
+                  <span>楷書・行書・草書・仮名など多様な書体</span>
+                </li>
+                <li class="flex items-start gap-2 text-sm text-sumi">
+                  <i data-lucide="check" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i>
+                  <span>段位・師範取得を目指す方にも対応</span>
+                </li>
+                <li class="flex items-start gap-2 text-sm text-sumi">
+                  <i data-lucide="check" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i>
+                  <span>本格的な書道の技術を習得</span>
+                </li>
+              </ul>
+              <a href="#contact" class="flex items-center gap-1 text-vermillion text-sm font-medium hover:gap-2 transition-all">
+                詳しく問い合わせる
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 創作コース -->
+          <div class="bg-parchment rounded-sm overflow-hidden hover:-translate-y-1 transition-transform duration-200" data-aos="fade-up" data-aos-delay="150">
+            <div class="h-1 bg-vermillion"></div>
+            <div class="p-8">
+              <div class="text-6xl heading-serif font-light text-ink-light/20 mb-2" style="font-family: var(--font-serif);">創</div>
+              <h3 class="heading-serif text-xl font-medium mb-1" style="font-family: var(--font-serif);">創作書道コース</h3>
+              <p class="text-gold text-sm mb-5 tracking-wide">Creative Calligraphy</p>
+              <p class="text-sumi text-sm leading-relaxed mb-6">
+                古典の技法をベースに、あなただけの表現を追求します。詩や言葉を自由な感性で書き表す、創造的な書道の世界。
+              </p>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start gap-2 text-sm text-sumi">
+                  <i data-lucide="check" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i>
+                  <span>詩・短歌・俳句など幅広いテーマ</span>
+                </li>
+                <li class="flex items-start gap-2 text-sm text-sumi">
+                  <i data-lucide="check" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i>
+                  <span>展覧会出品作品の制作サポート</span>
+                </li>
+                <li class="flex items-start gap-2 text-sm text-sumi">
+                  <i data-lucide="check" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i>
+                  <span>個性豊かな表現力を育む</span>
+                </li>
+              </ul>
+              <a href="#contact" class="flex items-center gap-1 text-vermillion text-sm font-medium hover:gap-2 transition-all">
+                詳しく問い合わせる
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 実用コース -->
+          <div class="bg-parchment rounded-sm overflow-hidden hover:-translate-y-1 transition-transform duration-200" data-aos="fade-up" data-aos-delay="300">
+            <div class="h-1 bg-vermillion"></div>
+            <div class="p-8">
+              <div class="text-6xl heading-serif font-light text-ink-light/20 mb-2" style="font-family: var(--font-serif);">実</div>
+              <h3 class="heading-serif text-xl font-medium mb-1" style="font-family: var(--font-serif);">実用書道コース</h3>
+              <p class="text-gold text-sm mb-5 tracking-wide">Practical Writing</p>
+              <p class="text-sumi text-sm leading-relaxed mb-6">
+                日常生活に役立つ美しい文字を身につけます。年賀状・封筒・芳名帳など、毎日の暮らしをより豊かにする実用的なスキル。
+              </p>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start gap-2 text-sm text-sumi">
+                  <i data-lucide="check" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i>
+                  <span>年賀状・のし袋・芳名帳の書き方</span>
+                </li>
+                <li class="flex items-start gap-2 text-sm text-sumi">
+                  <i data-lucide="check" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i>
+                  <span>ビジネス文書・署名の改善</span>
+                </li>
+                <li class="flex items-start gap-2 text-sm text-sumi">
+                  <i data-lucide="check" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i>
+                  <span>短期間で成果が出やすいカリキュラム</span>
+                </li>
+              </ul>
+              <a href="#contact" class="flex items-center gap-1 text-vermillion text-sm font-medium hover:gap-2 transition-all">
+                詳しく問い合わせる
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 5: BEGINNERS ===== -->
+    <section id="beginners" class="py-24 bg-parchment">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section header -->
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span class="text-gold text-sm tracking-widest uppercase">For Beginners</span>
+          <h2 class="heading-serif text-3xl lg:text-4xl font-light mt-3 mb-4" style="font-family: var(--font-serif);">はじめての方へ</h2>
+          <p class="text-sumi">書道は、いつ始めても遅くありません</p>
+          <div class="gold-divider mt-4"></div>
+        </div>
+
+        <!-- Two columns: Kids / Adults -->
+        <div class="grid md:grid-cols-2 gap-8 mb-20">
+
+          <!-- Kids -->
+          <div data-aos="fade-right">
+            <div class="relative overflow-hidden rounded-sm mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1754889940746-fe9b359ef441?w=700&q=80&fm=webp&fit=crop"
+                alt="習字をする子ども"
+                loading="lazy"
+                decoding="async"
+                class="w-full h-64 object-cover"
+              >
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink/80 to-transparent p-5">
+                <span class="text-yellow-300 text-xs tracking-widest uppercase">For Children</span>
+                <h3 class="heading-serif text-xl text-white mt-1" style="font-family: var(--font-serif);">お子様のための書道</h3>
+              </div>
+            </div>
+            <p class="text-sumi leading-loose mb-4">
+              書道は子どもたちの集中力・忍耐力・美的感覚を育てます。楽しみながら正しい姿勢と文字の美しさを身につけられる環境を整えています。
+            </p>
+            <p class="text-sumi leading-loose mb-4">
+              学校の習字の授業の予習・復習にも最適。先生が丁寧に寄り添うので、飽きっぽいお子様でも続けられます。
+            </p>
+            <div class="flex items-center gap-2 text-sumi text-sm">
+              <i data-lucide="users" class="w-4 h-4 text-vermillion"></i>
+              <span>対象：小学生〜中学生（保護者の方もご相談ください）</span>
+            </div>
+          </div>
+
+          <!-- Adults -->
+          <div data-aos="fade-left">
+            <div class="relative overflow-hidden rounded-sm mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1752649935428-d88487abc878?w=700&q=80&fm=webp&fit=crop"
+                alt="書道をする大人"
+                loading="lazy"
+                decoding="async"
+                class="w-full h-64 object-cover"
+              >
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink/80 to-transparent p-5">
+                <span class="text-yellow-300 text-xs tracking-widest uppercase">For Adults</span>
+                <h3 class="heading-serif text-xl text-white mt-1" style="font-family: var(--font-serif);">大人の方のための書道</h3>
+              </div>
+            </div>
+            <p class="text-sumi leading-loose mb-4">
+              始めるのに遅すぎることはありません。40代・50代・60代から書道を始める方も多くいらっしゃいます。墨の香りの中で過ごす静かな時間は、日常の喧騒を忘れさせてくれます。
+            </p>
+            <p class="text-sumi leading-loose mb-4">
+              仕事帰りや休日に、自分だけの時間を。書道は心のリフレッシュにもなる、豊かな趣味です。
+            </p>
+            <div class="flex items-center gap-2 text-sumi text-sm">
+              <i data-lucide="heart" class="w-4 h-4 text-vermillion"></i>
+              <span>シニアの方も大歓迎。年齢制限はありません</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trial lesson flow -->
+        <div class="bg-cream rounded-sm p-8 lg:p-12" data-aos="fade-up">
+          <h3 class="heading-serif text-2xl font-light text-center mb-10" style="font-family: var(--font-serif);">体験レッスンの流れ</h3>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <div class="text-center" data-aos="fade-up" data-aos-delay="0">
+              <div class="w-14 h-14 bg-vermillion text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-serif" style="font-family: var(--font-serif);">01</div>
+              <div class="w-8 h-8 bg-vermillion/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <i data-lucide="phone" class="w-4 h-4 text-vermillion"></i>
+              </div>
+              <h4 class="font-medium text-ink-light mb-2">お問い合わせ</h4>
+              <p class="text-sumi text-xs leading-relaxed">フォームまたはお電話でお気軽にご連絡ください</p>
+            </div>
+
+            <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+              <div class="w-14 h-14 bg-vermillion text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-serif" style="font-family: var(--font-serif);">02</div>
+              <div class="w-8 h-8 bg-vermillion/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <i data-lucide="calendar" class="w-4 h-4 text-vermillion"></i>
+              </div>
+              <h4 class="font-medium text-ink-light mb-2">日程調整</h4>
+              <p class="text-sumi text-xs leading-relaxed">ご都合の良い日時をご相談の上、決定します</p>
+            </div>
+
+            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+              <div class="w-14 h-14 bg-vermillion text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-serif" style="font-family: var(--font-serif);">03</div>
+              <div class="w-8 h-8 bg-vermillion/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <i data-lucide="pen-line" class="w-4 h-4 text-vermillion"></i>
+              </div>
+              <h4 class="font-medium text-ink-light mb-2">無料体験レッスン</h4>
+              <p class="text-sumi text-xs leading-relaxed">道具は全てご用意。手ぶらでお越しください（60分）</p>
+            </div>
+
+            <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+              <div class="w-14 h-14 bg-vermillion text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-serif" style="font-family: var(--font-serif);">04</div>
+              <div class="w-8 h-8 bg-vermillion/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <i data-lucide="smile" class="w-4 h-4 text-vermillion"></i>
+              </div>
+              <h4 class="font-medium text-ink-light mb-2">ご入会</h4>
+              <p class="text-sumi text-xs leading-relaxed">体験後、続けたい方はそのままご入会いただけます</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 6: SCHEDULE & PRICING ===== -->
+    <section id="schedule" class="py-24 bg-cream">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section header -->
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span class="text-gold text-sm tracking-widest uppercase">Schedule &amp; Pricing</span>
+          <h2 class="heading-serif text-3xl lg:text-4xl font-light mt-3 mb-4" style="font-family: var(--font-serif);">レッスン日程・料金</h2>
+          <div class="gold-divider"></div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+
+          <!-- Schedule table -->
+          <div data-aos="fade-right">
+            <h3 class="heading-serif text-xl font-medium mb-6 flex items-center gap-2" style="font-family: var(--font-serif);">
+              <i data-lucide="clock" class="w-5 h-5 text-vermillion"></i>
+              開講日時
+            </h3>
+            <div class="overflow-hidden rounded-sm border border-mist">
+              <table class="w-full text-sm">
+                <thead>
+                  <tr class="bg-ink text-white">
+                    <th class="text-left px-5 py-3 font-medium">曜日</th>
+                    <th class="text-left px-5 py-3 font-medium">開講時間</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="bg-cream">
+                    <td class="px-5 py-3 text-sumi">月曜日</td>
+                    <td class="px-5 py-3 text-sumi">10:00〜 / 13:00〜 / 19:00〜</td>
+                  </tr>
+                  <tr class="bg-parchment">
+                    <td class="px-5 py-3 text-sumi">水曜日</td>
+                    <td class="px-5 py-3 text-sumi">10:00〜 / 13:00〜 / 19:00〜</td>
+                  </tr>
+                  <tr class="bg-cream">
+                    <td class="px-5 py-3 text-sumi">金曜日</td>
+                    <td class="px-5 py-3 text-sumi">10:00〜 / 13:00〜 / 19:00〜</td>
+                  </tr>
+                  <tr class="bg-parchment">
+                    <td class="px-5 py-3 text-sumi">土曜日</td>
+                    <td class="px-5 py-3 text-sumi">10:00〜 / 13:00〜 / 15:00〜</td>
+                  </tr>
+                  <tr class="bg-cream">
+                    <td class="px-5 py-3 text-sumi">日曜日</td>
+                    <td class="px-5 py-3 text-sumi">10:00〜 / 13:00〜（要相談）</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-sumi text-xs mt-3 flex items-start gap-1.5">
+              <i data-lucide="info" class="w-3.5 h-3.5 text-gold shrink-0 mt-0.5"></i>
+              スケジュールはご相談の上、柔軟に対応します。上記以外の時間をご希望の場合もお気軽にご相談ください。
+            </p>
+          </div>
+
+          <!-- Pricing -->
+          <div data-aos="fade-left">
+            <h3 class="heading-serif text-xl font-medium mb-6 flex items-center gap-2" style="font-family: var(--font-serif);">
+              <i data-lucide="tag" class="w-5 h-5 text-vermillion"></i>
+              月謝・料金
+            </h3>
+            <div class="space-y-4">
+
+              <!-- Plan 1 -->
+              <div class="bg-parchment border border-mist rounded-sm p-6">
+                <div class="flex items-baseline justify-between mb-4">
+                  <div>
+                    <h4 class="heading-serif font-medium text-ink-light" style="font-family: var(--font-serif);">月謝制（月2回）</h4>
+                    <p class="text-sumi text-xs mt-1">1レッスン約60分</p>
+                  </div>
+                  <div class="text-right">
+                    <span class="text-2xl font-light text-ink-light heading-serif" style="font-family: var(--font-serif);">¥8,000</span>
+                    <span class="text-sumi text-xs">/月</span>
+                  </div>
+                </div>
+                <ul class="space-y-2">
+                  <li class="flex items-center gap-2 text-sm text-sumi">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0"></i>道具一式貸し出し含む
+                  </li>
+                  <li class="flex items-center gap-2 text-sm text-sumi">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0"></i>月内振替可
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Plan 2 (featured) -->
+              <div class="pricing-featured bg-parchment rounded-sm p-6 relative">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <span class="bg-vermillion text-white text-xs px-4 py-1 rounded-full flex items-center gap-1">
+                    <i data-lucide="star" class="w-3 h-3"></i>おすすめ
+                  </span>
+                </div>
+                <div class="flex items-baseline justify-between mb-4">
+                  <div>
+                    <h4 class="heading-serif font-medium text-ink-light" style="font-family: var(--font-serif);">月謝制（月4回）</h4>
+                    <p class="text-sumi text-xs mt-1">1レッスン約60分</p>
+                  </div>
+                  <div class="text-right">
+                    <span class="text-2xl font-light text-vermillion heading-serif" style="font-family: var(--font-serif);">¥14,000</span>
+                    <span class="text-sumi text-xs">/月</span>
+                  </div>
+                </div>
+                <ul class="space-y-2">
+                  <li class="flex items-center gap-2 text-sm text-sumi">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0"></i>道具一式貸し出し含む
+                  </li>
+                  <li class="flex items-center gap-2 text-sm text-sumi">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0"></i>月内振替可
+                  </li>
+                  <li class="flex items-center gap-2 text-sm text-sumi">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0"></i>上達が早い週1ペース
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+            <!-- Notes -->
+            <div class="mt-5 space-y-1.5">
+              <p class="text-sumi text-xs flex items-start gap-1.5">
+                <i data-lucide="info" class="w-3.5 h-3.5 text-gold shrink-0 mt-0.5"></i>
+                体験レッスンは無料（道具一式貸し出し）
+              </p>
+              <p class="text-sumi text-xs flex items-start gap-1.5">
+                <i data-lucide="info" class="w-3.5 h-3.5 text-gold shrink-0 mt-0.5"></i>
+                入会金 ¥5,000（初回のみ）
+              </p>
+              <p class="text-sumi text-xs flex items-start gap-1.5">
+                <i data-lucide="info" class="w-3.5 h-3.5 text-gold shrink-0 mt-0.5"></i>
+                月の途中からのご入会も日割り計算で対応
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 7: GALLERY ===== -->
+    <section id="gallery" class="py-24 bg-ink">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section header -->
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span class="text-yellow-300 text-sm tracking-widest uppercase">Gallery</span>
+          <h2 class="heading-serif text-3xl lg:text-4xl font-light mt-3 mb-4 text-white" style="font-family: var(--font-serif);">作品ギャラリー</h2>
+          <p class="text-white/60">生徒さんの作品・展覧会の様子</p>
+          <div class="gold-divider mt-4"></div>
+        </div>
+
+        <!-- Gallery grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+          <div class="gallery-item cursor-pointer overflow-hidden rounded-sm" data-aos="zoom-in" data-aos-delay="0">
+            <img
+              src="https://images.unsplash.com/photo-1765188987649-556278abd405?w=600&q=75&fm=webp&fit=crop"
+              alt="書道作品 1"
+              loading="lazy"
+              decoding="async"
+              class="gallery-img w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500"
+              data-full="https://images.unsplash.com/photo-1765188987649-556278abd405?w=1200&q=85&fm=webp&fit=crop"
+            >
+          </div>
+          <div class="gallery-item cursor-pointer overflow-hidden rounded-sm" data-aos="zoom-in" data-aos-delay="80">
+            <img
+              src="https://images.unsplash.com/photo-1768408279662-d31ad1a1cda6?w=600&q=75&fm=webp&fit=crop"
+              alt="書道作品 2"
+              loading="lazy"
+              decoding="async"
+              class="gallery-img w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500"
+              data-full="https://images.unsplash.com/photo-1768408279662-d31ad1a1cda6?w=1200&q=85&fm=webp&fit=crop"
+            >
+          </div>
+          <div class="gallery-item cursor-pointer overflow-hidden rounded-sm" data-aos="zoom-in" data-aos-delay="160">
+            <img
+              src="https://images.unsplash.com/photo-1762115839642-5aebd2ea7501?w=600&q=75&fm=webp&fit=crop"
+              alt="書道作品 3"
+              loading="lazy"
+              decoding="async"
+              class="gallery-img w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500"
+              data-full="https://images.unsplash.com/photo-1762115839642-5aebd2ea7501?w=1200&q=85&fm=webp&fit=crop"
+            >
+          </div>
+          <div class="gallery-item cursor-pointer overflow-hidden rounded-sm" data-aos="zoom-in" data-aos-delay="240">
+            <img
+              src="https://images.unsplash.com/photo-1575833947895-6c6223316549?w=600&q=75&fm=webp&fit=crop"
+              alt="書道作品 4"
+              loading="lazy"
+              decoding="async"
+              class="gallery-img w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500"
+              data-full="https://images.unsplash.com/photo-1575833947895-6c6223316549?w=1200&q=85&fm=webp&fit=crop"
+            >
+          </div>
+          <div class="gallery-item cursor-pointer overflow-hidden rounded-sm col-span-2 md:col-span-1" data-aos="zoom-in" data-aos-delay="320">
+            <img
+              src="https://images.unsplash.com/photo-1719935115623-4857df23f3c6?w=600&q=75&fm=webp&fit=crop"
+              alt="書道展覧会の様子"
+              loading="lazy"
+              decoding="async"
+              class="gallery-img w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500"
+              data-full="https://images.unsplash.com/photo-1719935115623-4857df23f3c6?w=1200&q=85&fm=webp&fit=crop"
+            >
+          </div>
+          <div class="gallery-item cursor-pointer overflow-hidden rounded-sm hidden md:block" data-aos="zoom-in" data-aos-delay="400">
+            <img
+              src="https://images.unsplash.com/photo-1576437660573-a33d2a2f93d3?w=600&q=75&fm=webp&fit=crop"
+              alt="書道作品 6"
+              loading="lazy"
+              decoding="async"
+              class="gallery-img w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500"
+              data-full="https://images.unsplash.com/photo-1576437660573-a33d2a2f93d3?w=1200&q=85&fm=webp&fit=crop"
+            >
+          </div>
+        </div>
+
+        <!-- Exhibition note -->
+        <div class="text-center mt-10" data-aos="fade-up">
+          <p class="text-white/60 text-sm flex items-center justify-center gap-2">
+            <i data-lucide="info" class="w-4 h-4 text-yellow-300"></i>
+            上達された生徒さんは、毎年開催される書道展に作品を出品されています
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-ink/95 items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="画像拡大表示">
+      <button id="lightbox-close" class="absolute top-6 right-6 text-white/80 hover:text-white" aria-label="閉じる">
+        <i data-lucide="x" class="w-8 h-8"></i>
+      </button>
+      <img id="lightbox-img" src="" alt="拡大表示" class="max-w-full max-h-[90vh] object-contain rounded-sm">
+    </div>
+
+    <!-- ===== SECTION 8: INSTRUCTOR ===== -->
+    <section id="instructor" class="py-24 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section header -->
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span class="text-gold text-sm tracking-widest uppercase">Instructor</span>
+          <h2 class="heading-serif text-3xl lg:text-4xl font-light mt-3 mb-4" style="font-family: var(--font-serif);">講師紹介</h2>
+          <div class="gold-divider"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          <!-- Portrait -->
+          <div class="text-center" data-aos="fade-right">
+            <div class="relative inline-block">
+              <img
+                src="https://images.unsplash.com/photo-1609054759989-789b5ddb0f02?w=500&q=80&fm=webp&fit=crop&crop=faces"
+                alt="講師の写真"
+                loading="lazy"
+                decoding="async"
+                class="w-56 h-56 lg:w-72 lg:h-72 object-cover rounded-full mx-auto"
+                style="border: 4px solid var(--color-gold); outline: 2px solid var(--color-mist); outline-offset: 6px;"
+              >
+            </div>
+            <div class="mt-6">
+              <h3 class="heading-serif text-2xl font-light" style="font-family: var(--font-serif);">山田 花子 先生</h3>
+              <p class="text-gold text-sm mt-1 flex items-center justify-center gap-1">
+                <i data-lucide="award" class="w-4 h-4"></i>
+                書道家・師範
+              </p>
+            </div>
+          </div>
+
+          <!-- Bio -->
+          <div data-aos="fade-left">
+            <p class="text-sumi leading-loose mb-4">
+              幼少期より書道を学び、20歳で師範の資格を取得。以来、15年以上にわたって書道の指導にあたっています。臨書・創作書道を専門とし、国内外の書道展で多数の賞を受賞。
+            </p>
+            <p class="text-sumi leading-loose mb-4">
+              「書道は難しいものではなく、誰もが楽しめるアート」という信念のもと、初心者から上級者まで、その人の個性を大切にしながら丁寧に指導しています。
+            </p>
+            <p class="text-sumi leading-loose mb-8">
+              子どもたちには書道の楽しさと集中する喜びを、大人の方々には日常のなかの静かな時間と表現の自由をお伝えしたいと思っています。
+            </p>
+
+            <!-- Credentials -->
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3 text-sumi text-sm">
+                <i data-lucide="check-circle" class="w-5 h-5 text-gold shrink-0"></i>
+                全日本書道連盟 認定師範
+              </li>
+              <li class="flex items-center gap-3 text-sumi text-sm">
+                <i data-lucide="check-circle" class="w-5 h-5 text-gold shrink-0"></i>
+                書道展・入選受賞歴 多数
+              </li>
+              <li class="flex items-center gap-3 text-sumi text-sm">
+                <i data-lucide="check-circle" class="w-5 h-5 text-gold shrink-0"></i>
+                指導歴 15年以上
+              </li>
+              <li class="flex items-center gap-3 text-sumi text-sm">
+                <i data-lucide="check-circle" class="w-5 h-5 text-gold shrink-0"></i>
+                カルチャーセンター講師歴あり
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 9: FAQ ===== -->
+    <section id="faq" class="py-24 bg-parchment">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section header -->
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span class="text-gold text-sm tracking-widest uppercase">FAQ</span>
+          <h2 class="heading-serif text-3xl lg:text-4xl font-light mt-3 mb-4" style="font-family: var(--font-serif);">よくあるご質問</h2>
+          <div class="gold-divider"></div>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div class="space-y-3">
+
+          <details class="bg-cream rounded-sm group" data-aos="fade-up" data-aos-delay="0">
+            <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+              <span class="text-ink-light font-medium pr-4">道具は自分で用意する必要がありますか？</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-vermillion shrink-0 faq-chevron"></i>
+            </summary>
+            <div class="px-6 pb-5 text-sumi text-sm leading-relaxed border-t border-mist pt-4">
+              体験レッスンおよびご入会当初は、筆・硯・墨・紙など道具一式を全てお貸しします。ある程度慣れてきたら、ご自身に合った道具のご購入をご案内します。道具の選び方もアドバイスいたします。
+            </div>
+          </details>
+
+          <details class="bg-cream rounded-sm group" data-aos="fade-up" data-aos-delay="60">
+            <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+              <span class="text-ink-light font-medium pr-4">子どもは何歳から通えますか？</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-vermillion shrink-0 faq-chevron"></i>
+            </summary>
+            <div class="px-6 pb-5 text-sumi text-sm leading-relaxed border-t border-mist pt-4">
+              基本的には小学1年生（6歳）以上を対象としております。ただし、お子様の様子によりご相談の上、対応させていただく場合もございますので、お気軽にお問い合わせください。
+            </div>
+          </details>
+
+          <details class="bg-cream rounded-sm group" data-aos="fade-up" data-aos-delay="120">
+            <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+              <span class="text-ink-light font-medium pr-4">全くの初心者でも大丈夫ですか？</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-vermillion shrink-0 faq-chevron"></i>
+            </summary>
+            <div class="px-6 pb-5 text-sumi text-sm leading-relaxed border-t border-mist pt-4">
+              もちろんです。筆の持ち方・墨のすり方・姿勢など、書道の基本から丁寧にお教えします。「字が下手」「書道経験ゼロ」という方も、たくさんご入会されています。安心してご参加ください。
+            </div>
+          </details>
+
+          <details class="bg-cream rounded-sm group" data-aos="fade-up" data-aos-delay="180">
+            <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+              <span class="text-ink-light font-medium pr-4">振替レッスンはできますか？</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-vermillion shrink-0 faq-chevron"></i>
+            </summary>
+            <div class="px-6 pb-5 text-sumi text-sm leading-relaxed border-t border-mist pt-4">
+              はい、月内であれば振替が可能です。急なご都合でレッスンを変更したい場合は、できるだけ早めにご連絡ください。翌月への繰り越しについてはご相談ください。
+            </div>
+          </details>
+
+          <details class="bg-cream rounded-sm group" data-aos="fade-up" data-aos-delay="240">
+            <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+              <span class="text-ink-light font-medium pr-4">レッスン時に何か用意するものはありますか？</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-vermillion shrink-0 faq-chevron"></i>
+            </summary>
+            <div class="px-6 pb-5 text-sumi text-sm leading-relaxed border-t border-mist pt-4">
+              動きやすい・汚れても良い服装でお越しください（エプロンもご用意しています）。道具は全てこちらでご用意します。手ぶらでお越しいただけます。
+            </div>
+          </details>
+
+          <details class="bg-cream rounded-sm group" data-aos="fade-up" data-aos-delay="300">
+            <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+              <span class="text-ink-light font-medium pr-4">展覧会への参加は必須ですか？</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-vermillion shrink-0 faq-chevron"></i>
+            </summary>
+            <div class="px-6 pb-5 text-sumi text-sm leading-relaxed border-t border-mist pt-4">
+              いいえ、必須ではありません。ある程度上達された方にご案内をしていますが、参加するかどうかはご本人の意思を尊重します。「趣味として楽しみたい」という方も多くいらっしゃいます。
+            </div>
+          </details>
+
+          <details class="bg-cream rounded-sm group" data-aos="fade-up" data-aos-delay="360">
+            <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+              <span class="text-ink-light font-medium pr-4">月の途中から入会できますか？</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-vermillion shrink-0 faq-chevron"></i>
+            </summary>
+            <div class="px-6 pb-5 text-sumi text-sm leading-relaxed border-t border-mist pt-4">
+              はい、月の途中からでもご入会いただけます。その場合は残りのレッスン日数に応じた日割り計算でご対応します。まずはお気軽にご相談ください。
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 10: CONTACT ===== -->
+    <section id="contact" class="py-24 bg-ink">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section header -->
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span class="text-yellow-300 text-sm tracking-widest uppercase">Contact</span>
+          <h2 class="heading-serif text-3xl lg:text-4xl font-light mt-3 mb-4 text-white" style="font-family: var(--font-serif);">お問い合わせ・無料体験お申し込み</h2>
+          <p class="text-white/60">まずはお気軽にお問い合わせください</p>
+          <div class="gold-divider mt-4"></div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+
+          <!-- Access info -->
+          <div class="text-white" data-aos="fade-right">
+            <h3 class="heading-serif text-xl font-light mb-8 text-yellow-100" style="font-family: var(--font-serif);">アクセス・連絡先</h3>
+
+            <ul class="space-y-6">
+              <li class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-vermillion/20 rounded-full flex items-center justify-center shrink-0">
+                  <i data-lucide="map-pin" class="w-5 h-5 text-yellow-300"></i>
+                </div>
+                <div>
+                  <p class="text-white/50 text-xs mb-1">住所</p>
+                  <p class="text-white/90">〒000-0000<br>東京都○○区○○1-2-3<br>○○ビル 2F</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-vermillion/20 rounded-full flex items-center justify-center shrink-0">
+                  <i data-lucide="phone" class="w-5 h-5 text-yellow-300"></i>
+                </div>
+                <div>
+                  <p class="text-white/50 text-xs mb-1">電話番号</p>
+                  <p class="text-white/90">03-0000-0000</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-vermillion/20 rounded-full flex items-center justify-center shrink-0">
+                  <i data-lucide="mail" class="w-5 h-5 text-yellow-300"></i>
+                </div>
+                <div>
+                  <p class="text-white/50 text-xs mb-1">メールアドレス</p>
+                  <p class="text-white/90">info@shodo-school.example</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-vermillion/20 rounded-full flex items-center justify-center shrink-0">
+                  <i data-lucide="clock" class="w-5 h-5 text-yellow-300"></i>
+                </div>
+                <div>
+                  <p class="text-white/50 text-xs mb-1">対応時間</p>
+                  <p class="text-white/90">月〜土 10:00〜20:00<br>（日・祝は要相談）</p>
+                </div>
+              </li>
+            </ul>
+
+            <!-- Map placeholder -->
+            <div class="mt-8 rounded-sm overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1752649935428-d88487abc878?w=600&q=70&fm=webp&fit=crop"
+                alt="教室周辺のイメージ"
+                loading="lazy"
+                decoding="async"
+                class="w-full h-40 object-cover opacity-60"
+              >
+              <div class="bg-white/10 px-4 py-3 text-white/60 text-xs text-center">
+                ※ 詳細な地図はお問い合わせ後にお送りします
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact form -->
+          <div data-aos="fade-left">
+            <div class="bg-cream rounded-sm p-6 lg:p-8">
+
+              <!-- Success message (hidden by default) -->
+              <div id="form-success" class="hidden text-center py-8">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i data-lucide="check-circle" class="w-8 h-8 text-green-600"></i>
+                </div>
+                <h3 class="heading-serif text-xl text-ink-light mb-2" style="font-family: var(--font-serif);">送信完了しました</h3>
+                <p class="text-sumi text-sm leading-relaxed">お問い合わせありがとうございます。<br>2営業日以内にご連絡いたします。</p>
+              </div>
+
+              <!-- Form -->
+              <form id="contact-form" novalidate>
+                <div class="space-y-5">
+
+                  <div class="form-group">
+                    <label for="name" class="block text-ink-light text-sm font-medium mb-1.5">
+                      お名前 <span class="text-vermillion">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="山田 太郎"
+                      class="w-full border border-mist rounded-sm px-4 py-3 text-sumi text-sm focus:outline-none focus:border-gold bg-cream placeholder-mist transition-colors"
+                      autocomplete="name"
+                    >
+                  </div>
+
+                  <div class="form-group">
+                    <label for="furigana" class="block text-ink-light text-sm font-medium mb-1.5">
+                      ふりがな <span class="text-vermillion">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="furigana"
+                      name="furigana"
+                      placeholder="やまだ たろう"
+                      class="w-full border border-mist rounded-sm px-4 py-3 text-sumi text-sm focus:outline-none focus:border-gold bg-cream placeholder-mist transition-colors"
+                    >
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email" class="block text-ink-light text-sm font-medium mb-1.5">
+                      メールアドレス <span class="text-vermillion">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="your@email.com"
+                      class="w-full border border-mist rounded-sm px-4 py-3 text-sumi text-sm focus:outline-none focus:border-gold bg-cream placeholder-mist transition-colors"
+                      autocomplete="email"
+                    >
+                  </div>
+
+                  <div class="form-group">
+                    <label for="tel" class="block text-ink-light text-sm font-medium mb-1.5">
+                      お電話番号 <span class="text-sumi text-xs font-normal">（任意）</span>
+                    </label>
+                    <input
+                      type="tel"
+                      id="tel"
+                      name="tel"
+                      placeholder="03-0000-0000"
+                      class="w-full border border-mist rounded-sm px-4 py-3 text-sumi text-sm focus:outline-none focus:border-gold bg-cream placeholder-mist transition-colors"
+                      autocomplete="tel"
+                    >
+                  </div>
+
+                  <div class="form-group">
+                    <label for="purpose" class="block text-ink-light text-sm font-medium mb-1.5">
+                      ご用件 <span class="text-vermillion">*</span>
+                    </label>
+                    <select
+                      id="purpose"
+                      name="purpose"
+                      class="w-full border border-mist rounded-sm px-4 py-3 text-sumi text-sm focus:outline-none focus:border-gold bg-cream transition-colors appearance-none"
+                    >
+                      <option value="">選択してください</option>
+                      <option value="trial">無料体験の申し込み</option>
+                      <option value="course">コースについての質問</option>
+                      <option value="price">料金についての質問</option>
+                      <option value="other">その他</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="block text-ink-light text-sm font-medium mb-2">
+                      ご希望の曜日 <span class="text-sumi text-xs font-normal">（複数選択可）</span>
+                    </label>
+                    <div class="flex flex-wrap gap-2">
+                      <label class="flex items-center gap-1.5 text-sm text-sumi cursor-pointer">
+                        <input type="checkbox" name="days" value="mon" class="accent-vermillion"> 月
+                      </label>
+                      <label class="flex items-center gap-1.5 text-sm text-sumi cursor-pointer">
+                        <input type="checkbox" name="days" value="wed" class="accent-vermillion"> 水
+                      </label>
+                      <label class="flex items-center gap-1.5 text-sm text-sumi cursor-pointer">
+                        <input type="checkbox" name="days" value="fri" class="accent-vermillion"> 金
+                      </label>
+                      <label class="flex items-center gap-1.5 text-sm text-sumi cursor-pointer">
+                        <input type="checkbox" name="days" value="sat" class="accent-vermillion"> 土
+                      </label>
+                      <label class="flex items-center gap-1.5 text-sm text-sumi cursor-pointer">
+                        <input type="checkbox" name="days" value="sun" class="accent-vermillion"> 日
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="message" class="block text-ink-light text-sm font-medium mb-1.5">
+                      メッセージ <span class="text-sumi text-xs font-normal">（任意）</span>
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="4"
+                      placeholder="ご質問・ご要望などをご自由にどうぞ"
+                      class="w-full border border-mist rounded-sm px-4 py-3 text-sumi text-sm focus:outline-none focus:border-gold bg-cream placeholder-mist transition-colors resize-none"
+                    ></textarea>
+                  </div>
+
+                  <!-- Privacy checkbox -->
+                  <div class="form-group">
+                    <label class="flex items-start gap-2.5 cursor-pointer">
+                      <input type="checkbox" id="privacy" name="privacy" class="mt-0.5 accent-vermillion shrink-0">
+                      <span class="text-xs text-sumi leading-relaxed">
+                        <span class="text-vermillion">*</span>
+                        <a href="#" class="underline hover:text-vermillion transition-colors">プライバシーポリシー</a>に同意します
+                      </span>
+                    </label>
+                  </div>
+
+                  <button
+                    type="submit"
+                    class="w-full bg-vermillion hover:bg-vermillion-dark text-white py-4 rounded-sm font-medium text-sm transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                  >
+                    送信する
+                  </button>
+
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer" class="bg-ink-light text-white/70 py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
+
+        <!-- Brand -->
+        <div>
+          <a href="#hero" class="flex items-center gap-2 text-white mb-4 hover:opacity-80 transition-opacity">
+            <i data-lucide="pen-line" class="w-5 h-5 text-yellow-300"></i>
+            <span class="font-serif text-base" style="font-family: var(--font-serif);">楽しい書道教室</span>
+          </a>
+          <p class="text-sm leading-relaxed text-white/50">
+            子どもから大人まで、楽しく学べる書道教室。<br>マンツーマン指導で、あなたのペースに合わせます。
+          </p>
+        </div>
+
+        <!-- Nav links -->
+        <div>
+          <h4 class="text-white text-sm font-medium mb-4 tracking-wider uppercase">ナビゲーション</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#about" class="hover:text-white transition-colors">教室について</a></li>
+            <li><a href="#features" class="hover:text-white transition-colors">当教室の特徴</a></li>
+            <li><a href="#courses" class="hover:text-white transition-colors">コースのご紹介</a></li>
+            <li><a href="#beginners" class="hover:text-white transition-colors">はじめての方へ</a></li>
+            <li><a href="#schedule" class="hover:text-white transition-colors">日程・料金</a></li>
+            <li><a href="#gallery" class="hover:text-white transition-colors">ギャラリー</a></li>
+            <li><a href="#contact" class="hover:text-white transition-colors">お問い合わせ</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact summary -->
+        <div>
+          <h4 class="text-white text-sm font-medium mb-4 tracking-wider uppercase">連絡先</h4>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start gap-2 text-white/50">
+              <i data-lucide="map-pin" class="w-4 h-4 text-yellow-300/70 shrink-0 mt-0.5"></i>
+              東京都○○区○○1-2-3
+            </li>
+            <li class="flex items-center gap-2 text-white/50">
+              <i data-lucide="phone" class="w-4 h-4 text-yellow-300/70 shrink-0"></i>
+              03-0000-0000
+            </li>
+            <li class="flex items-center gap-2 text-white/50">
+              <i data-lucide="mail" class="w-4 h-4 text-yellow-300/70 shrink-0"></i>
+              info@shodo-school.example
+            </li>
+          </ul>
+          <!-- Free trial CTA -->
+          <a href="#contact" class="mt-6 inline-block bg-vermillion hover:bg-vermillion-dark text-white text-xs px-5 py-2.5 rounded-sm transition-colors">
+            無料体験を申し込む
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-white/30">
+        <p>© 2025 楽しい書道教室 All Rights Reserved.</p>
+        <a href="#" class="hover:text-white/60 transition-colors">プライバシーポリシー</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://unpkg.com/lucide@0.536.0/dist/umd/lucide.min.js"></script>
+
+  <script>
+    // Initialize icons and AOS
+    lucide.createIcons();
+    AOS.init({
+      duration: 700,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 80
+    });
+
+    // ===== NAV SCROLL BEHAVIOR =====
+    function initNavScroll() {
+      const header = document.getElementById('site-header');
+      let ticking = false;
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            if (window.scrollY > 50) {
+              header.classList.add('scrolled');
+            } else {
+              header.classList.remove('scrolled');
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    }
+
+    // ===== MOBILE MENU =====
+    function initMobileMenu() {
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function openMenu() {
+        menu.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.setAttribute('aria-label', 'メニューを閉じる');
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      }
+
+      function closeMenu() {
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'メニューを開く');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+
+      btn.addEventListener('click', () => {
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        isOpen ? closeMenu() : openMenu();
+      });
+
+      // Close on link click
+      mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+      // Close on outside click
+      document.addEventListener('click', (e) => {
+        if (!btn.contains(e.target) && !menu.contains(e.target)) {
+          closeMenu();
+        }
+      });
+    }
+
+    // ===== GALLERY LIGHTBOX =====
+    function initLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const closeBtn = document.getElementById('lightbox-close');
+      const galleryImgs = document.querySelectorAll('.gallery-img');
+      let lastFocused = null;
+
+      function openLightbox(src, alt) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+        if (lastFocused) lastFocused.focus();
+      }
+
+      galleryImgs.forEach(img => {
+        img.addEventListener('click', () => {
+          lastFocused = img;
+          const fullSrc = img.dataset.full || img.src;
+          openLightbox(fullSrc, img.alt);
+        });
+        img.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            lastFocused = img;
+            openLightbox(img.dataset.full || img.src, img.alt);
+          }
+        });
+        img.setAttribute('tabindex', '0');
+        img.setAttribute('role', 'button');
+      });
+
+      closeBtn.addEventListener('click', closeLightbox);
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+          closeLightbox();
+        }
+      });
+    }
+
+    // ===== CONTACT FORM VALIDATION =====
+    function initContactForm() {
+      const form = document.getElementById('contact-form');
+      const successEl = document.getElementById('form-success');
+      let hasAttempted = false;
+
+      function showError(group, message) {
+        const input = group.querySelector('input, select, textarea');
+        if (input) input.classList.add('field-error');
+        let errEl = group.querySelector('.error-msg');
+        if (!errEl) {
+          errEl = document.createElement('p');
+          errEl.className = 'error-msg';
+          group.appendChild(errEl);
+        }
+        errEl.textContent = message;
+      }
+
+      function clearError(group) {
+        const input = group.querySelector('input, select, textarea');
+        if (input) input.classList.remove('field-error');
+        const errEl = group.querySelector('.error-msg');
+        if (errEl) errEl.remove();
+      }
+
+      function validateField(group) {
+        const input = group.querySelector('input, select, textarea');
+        if (!input) return true;
+        const value = input.value.trim();
+        const id = input.id;
+
+        if (id === 'name') {
+          if (!value) { showError(group, 'お名前を入力してください'); return false; }
+        }
+        if (id === 'furigana') {
+          if (!value) { showError(group, 'ふりがなを入力してください'); return false; }
+          if (!/^[ぁ-ん\s　ー]+$/.test(value)) { showError(group, 'ひらがなで入力してください'); return false; }
+        }
+        if (id === 'email') {
+          if (!value) { showError(group, 'メールアドレスを入力してください'); return false; }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) { showError(group, '正しいメールアドレスを入力してください'); return false; }
+        }
+        if (id === 'tel' && value) {
+          if (!/^[\d\-\+\(\)\s]{10,15}$/.test(value)) { showError(group, '正しい電話番号を入力してください'); return false; }
+        }
+        if (id === 'purpose') {
+          if (!value) { showError(group, 'ご用件を選択してください'); return false; }
+        }
+        if (id === 'privacy') {
+          if (!input.checked) { showError(group, 'プライバシーポリシーへの同意が必要です'); return false; }
+        }
+
+        clearError(group);
+        return true;
+      }
+
+      function validateAll() {
+        const groups = form.querySelectorAll('.form-group');
+        let valid = true;
+        let firstError = null;
+
+        groups.forEach(group => {
+          const ok = validateField(group);
+          if (!ok && !firstError) firstError = group;
+          if (!ok) valid = false;
+        });
+
+        if (firstError) {
+          firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        return valid;
+      }
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        hasAttempted = true;
+
+        if (validateAll()) {
+          // Simulated success (wire to Formspree or backend here)
+          form.classList.add('hidden');
+          successEl.classList.remove('hidden');
+          successEl.classList.add('animate__animated', 'animate__fadeIn');
+          successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+
+      // Real-time validation after first attempt
+      form.addEventListener('input', () => {
+        if (!hasAttempted) return;
+        const group = event.target.closest('.form-group');
+        if (group) validateField(group);
+      });
+
+      form.addEventListener('change', (event) => {
+        if (!hasAttempted) return;
+        const group = event.target.closest('.form-group');
+        if (group) validateField(group);
+      });
+    }
+
+    // ===== SCROLL SPY =====
+    function initScrollSpy() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(link => {
+              link.classList.remove('nav-link-active');
+              if (link.getAttribute('href') === '#' + entry.target.id) {
+                link.classList.add('nav-link-active');
+              }
+            });
+          }
+        });
+      }, { threshold: 0.4 });
+
+      sections.forEach(section => observer.observe(section));
+    }
+
+    // ===== INIT ALL =====
+    document.addEventListener('DOMContentLoaded', () => {
+      initNavScroll();
+      initMobileMenu();
+      initLightbox();
+      initContactForm();
+      initScrollSpy();
+    });
+  </script>
+
+</body>
+</html>
