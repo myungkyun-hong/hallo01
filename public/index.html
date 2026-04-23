@@ -132,6 +132,109 @@
       color: #f8b4ae !important;
     }
 
+    /* ===== Modal / Document Viewer ===== */
+    #modal-overlay {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 280ms ease;
+    }
+    #modal-overlay.modal-open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    #modal-container {
+      opacity: 0;
+      transform: translateY(18px) scale(0.985);
+      transition: opacity 280ms ease, transform 300ms ease;
+    }
+    #modal-overlay.modal-open #modal-container {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    /* modal body prose styles */
+    .modal-prose h3 {
+      font-family: var(--font-serif);
+      color: var(--color-ink-light);
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-top: 1.8rem;
+      margin-bottom: 0.6rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--color-mist);
+    }
+    .modal-prose p {
+      color: var(--color-sumi);
+      line-height: 1.9;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    .modal-prose ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+    .modal-prose ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      color: var(--color-sumi);
+      font-size: 0.875rem;
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+    .modal-prose .modal-callout {
+      background: var(--color-parchment);
+      border-left: 3px solid var(--color-vermillion);
+      padding: 0.8rem 1.2rem;
+      border-radius: 0 4px 4px 0;
+      margin: 1.2rem 0;
+    }
+    .modal-prose .modal-callout p {
+      margin-bottom: 0;
+      font-style: italic;
+      font-family: var(--font-serif);
+      color: var(--color-ink-light);
+      font-size: 0.9rem;
+    }
+    .modal-prose .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    @media (max-width: 640px) {
+      .modal-prose .modal-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .modal-prose .modal-grid-item {
+      background: var(--color-parchment);
+      border: 1px solid var(--color-mist);
+      border-radius: 4px;
+      padding: 1rem;
+    }
+    .modal-prose .modal-grid-item .label {
+      font-size: 0.7rem;
+      color: var(--color-gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+    .modal-prose .modal-grid-item .value {
+      font-size: 0.875rem;
+      color: var(--color-ink-light);
+      font-family: var(--font-serif);
+    }
+    /* Feature card as button */
+    .feature-card {
+      cursor: pointer;
+      user-select: none;
+    }
+    .feature-card:focus-visible {
+      outline: 2px solid var(--color-vermillion);
+      outline-offset: 4px;
+    }
+
     /* Heading serif style */
     .heading-serif {
       font-family: var(--font-serif);
@@ -308,36 +411,65 @@
         <!-- Feature cards -->
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-          <div class="bg-cream border border-mist rounded-sm p-8 text-center hover:-translate-y-1 transition-transform duration-200" data-aos="fade-up" data-aos-delay="0">
-            <div class="w-14 h-14 bg-vermillion/10 rounded-full flex items-center justify-center mx-auto mb-5">
+          <!-- Feature card: クリックでモーダル表示 -->
+          <div class="feature-card bg-cream border border-mist rounded-sm p-8 text-center hover:-translate-y-1 transition-transform duration-200 group"
+               data-aos="fade-up" data-aos-delay="0"
+               data-modal-id="manman"
+               role="button" tabindex="0"
+               aria-label="マンツーマン指導の詳細を見る">
+            <div class="w-14 h-14 bg-vermillion/10 rounded-full flex items-center justify-center mx-auto mb-5 group-hover:bg-vermillion/20 transition-colors">
               <i data-lucide="user" class="w-7 h-7 text-vermillion"></i>
             </div>
             <h3 class="heading-serif text-lg font-medium mb-3" style="font-family: var(--font-serif);">マンツーマン指導</h3>
-            <p class="text-sumi text-sm leading-relaxed">一人ひとりのペースとスタイルに合わせた完全個別指導。あなただけの授業を提供します。</p>
+            <p class="text-sumi text-sm leading-relaxed mb-4">一人ひとりのペースとスタイルに合わせた完全個別指導。あなただけの授業を提供します。</p>
+            <span class="inline-flex items-center gap-1 text-xs text-vermillion opacity-0 group-hover:opacity-100 transition-opacity">
+              詳細を見る <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </span>
           </div>
 
-          <div class="bg-cream border border-mist rounded-sm p-8 text-center hover:-translate-y-1 transition-transform duration-200" data-aos="fade-up" data-aos-delay="100">
-            <div class="w-14 h-14 bg-vermillion/10 rounded-full flex items-center justify-center mx-auto mb-5">
+          <div class="feature-card bg-cream border border-mist rounded-sm p-8 text-center hover:-translate-y-1 transition-transform duration-200 group"
+               data-aos="fade-up" data-aos-delay="100"
+               data-modal-id="beginner"
+               role="button" tabindex="0"
+               aria-label="初心者大歓迎の詳細を見る">
+            <div class="w-14 h-14 bg-vermillion/10 rounded-full flex items-center justify-center mx-auto mb-5 group-hover:bg-vermillion/20 transition-colors">
               <i data-lucide="door-open" class="w-7 h-7 text-vermillion"></i>
             </div>
             <h3 class="heading-serif text-lg font-medium mb-3" style="font-family: var(--font-serif);">初心者大歓迎</h3>
-            <p class="text-sumi text-sm leading-relaxed">筆の持ち方から、丁寧にやさしくお教えします。書道が初めての方も安心してご参加ください。</p>
+            <p class="text-sumi text-sm leading-relaxed mb-4">筆の持ち方から、丁寧にやさしくお教えします。書道が初めての方も安心してご参加ください。</p>
+            <span class="inline-flex items-center gap-1 text-xs text-vermillion opacity-0 group-hover:opacity-100 transition-opacity">
+              詳細を見る <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </span>
           </div>
 
-          <div class="bg-cream border border-mist rounded-sm p-8 text-center hover:-translate-y-1 transition-transform duration-200" data-aos="fade-up" data-aos-delay="200">
-            <div class="w-14 h-14 bg-vermillion/10 rounded-full flex items-center justify-center mx-auto mb-5">
+          <div class="feature-card bg-cream border border-mist rounded-sm p-8 text-center hover:-translate-y-1 transition-transform duration-200 group"
+               data-aos="fade-up" data-aos-delay="200"
+               data-modal-id="schedule-flex"
+               role="button" tabindex="0"
+               aria-label="柔軟なスケジュールの詳細を見る">
+            <div class="w-14 h-14 bg-vermillion/10 rounded-full flex items-center justify-center mx-auto mb-5 group-hover:bg-vermillion/20 transition-colors">
               <i data-lucide="calendar-check" class="w-7 h-7 text-vermillion"></i>
             </div>
             <h3 class="heading-serif text-lg font-medium mb-3" style="font-family: var(--font-serif);">柔軟なスケジュール</h3>
-            <p class="text-sumi text-sm leading-relaxed">お仕事やお子様の学校に合わせて、レッスン日時を自由に設定。あなたのライフスタイルに合わせます。</p>
+            <p class="text-sumi text-sm leading-relaxed mb-4">お仕事やお子様の学校に合わせて、レッスン日時を自由に設定。あなたのライフスタイルに合わせます。</p>
+            <span class="inline-flex items-center gap-1 text-xs text-vermillion opacity-0 group-hover:opacity-100 transition-opacity">
+              詳細を見る <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </span>
           </div>
 
-          <div class="bg-cream border border-mist rounded-sm p-8 text-center hover:-translate-y-1 transition-transform duration-200" data-aos="fade-up" data-aos-delay="300">
-            <div class="w-14 h-14 bg-vermillion/10 rounded-full flex items-center justify-center mx-auto mb-5">
+          <div class="feature-card bg-cream border border-mist rounded-sm p-8 text-center hover:-translate-y-1 transition-transform duration-200 group"
+               data-aos="fade-up" data-aos-delay="300"
+               data-modal-id="exhibition"
+               role="button" tabindex="0"
+               aria-label="展覧会への参加の詳細を見る">
+            <div class="w-14 h-14 bg-vermillion/10 rounded-full flex items-center justify-center mx-auto mb-5 group-hover:bg-vermillion/20 transition-colors">
               <i data-lucide="award" class="w-7 h-7 text-vermillion"></i>
             </div>
             <h3 class="heading-serif text-lg font-medium mb-3" style="font-family: var(--font-serif);">展覧会への参加</h3>
-            <p class="text-sumi text-sm leading-relaxed">上達された方は、書道展に作品を出品できます。自分の成長を実感できる機会です。</p>
+            <p class="text-sumi text-sm leading-relaxed mb-4">上達された方は、書道展に作品を出品できます。自分の成長を実感できる機会です。</p>
+            <span class="inline-flex items-center gap-1 text-xs text-vermillion opacity-0 group-hover:opacity-100 transition-opacity">
+              詳細を見る <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </span>
           </div>
         </div>
       </div>
@@ -1246,6 +1378,55 @@
     </div>
   </footer>
 
+  <!-- ===== MODAL / DOCUMENT VIEWER ===== -->
+  <!--
+    再利用可能なモーダルシステム
+    使い方: data-modal-id="<id>" を持つ要素をクリックすると開く
+    コンテンツは JS の modalData オブジェクトで定義
+  -->
+  <div id="modal-overlay"
+       class="fixed inset-0 z-[200] flex items-start justify-center overflow-y-auto py-6 px-4 sm:px-6 lg:py-10"
+       role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <!-- Backdrop -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-ink/80 backdrop-blur-sm"></div>
+
+    <!-- Container -->
+    <div id="modal-container"
+         class="relative bg-cream rounded-sm shadow-2xl w-full flex flex-col overflow-hidden my-auto"
+         style="max-width: min(85vw, 960px);">
+
+      <!-- Header -->
+      <div class="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-mist bg-parchment shrink-0">
+        <div class="flex items-center gap-4 min-w-0">
+          <div id="modal-icon-wrap" class="w-10 h-10 bg-vermillion/10 rounded-full flex items-center justify-center shrink-0"></div>
+          <div class="min-w-0">
+            <p id="modal-subtitle" class="text-gold text-xs tracking-widest uppercase mb-0.5"></p>
+            <h2 id="modal-title" class="heading-serif text-xl font-medium text-ink-light truncate" style="font-family: var(--font-serif);"></h2>
+          </div>
+        </div>
+        <button id="modal-close"
+                aria-label="閉じる"
+                class="w-9 h-9 rounded-full hover:bg-vermillion/10 flex items-center justify-center text-sumi hover:text-vermillion transition-colors shrink-0 ml-4">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Body: content injected by JS -->
+      <div id="modal-body" class="overflow-y-auto modal-prose px-6 sm:px-8 lg:px-12 py-6 lg:py-8 max-h-[70vh]"></div>
+
+      <!-- Footer CTA -->
+      <div class="shrink-0 px-6 sm:px-8 lg:px-12 py-5 border-t border-mist bg-parchment flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p class="text-sumi text-xs">ご不明な点はお気軽にお問い合わせください</p>
+        <a href="#contact"
+           id="modal-cta"
+           class="inline-flex items-center gap-2 bg-vermillion hover:bg-vermillion-dark text-white text-sm px-6 py-2.5 rounded-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          無料体験に申し込む
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- ===== SCRIPTS ===== -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="https://unpkg.com/lucide@0.536.0/dist/umd/lucide.min.js"></script>
@@ -1494,6 +1675,257 @@
       sections.forEach(section => observer.observe(section));
     }
 
+    // ===== MODAL SYSTEM =====
+    // コンテンツデータ: 各モーダルの内容をここで定義。
+    // 新しいモーダルを追加するには、modalData にエントリを追加し、
+    // 呼び出し元要素に data-modal-id="<key>" を付けるだけ。
+    const modalData = {
+
+      'manman': {
+        title: 'マンツーマン指導',
+        subtitle: '完全個別レッスンについて',
+        icon: 'user',
+        content: `
+          <div class="modal-callout">
+            <p>「先生の目がずっと自分だけに向いている」——それが、上達の近道です。</p>
+          </div>
+
+          <h3>グループレッスンとの違い</h3>
+          <p>一般的な書道教室の多くは複数名のグループ形式で行われますが、洪明均書道サロンでは全レッスンを完全マンツーマンで実施しています。先生の注意が常に一人の生徒に向けられるため、見逃しがちな癖や課題を即座に指摘・改善できます。</p>
+
+          <div class="modal-grid">
+            <div class="modal-grid-item">
+              <div class="label">グループレッスン</div>
+              <div class="value">複数名で進行。指摘は順番待ち。</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">マンツーマン（当教室）</div>
+              <div class="value">60分間、常に先生の目が自分だけに。</div>
+            </div>
+          </div>
+
+          <h3>レッスンの流れ（60分）</h3>
+          <ul>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>最初の5分：</strong>前回の振り返りと今日の目標設定。上達の軌跡を先生と一緒に確認します。</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>準備（5分）：</strong>墨をする時間は、心を落ち着ける大切な儀式。丁寧な墨の扱い方も学びます。</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>本練習（40分）：</strong>その日の課題に集中。先生がリアルタイムで手を添えての指導も行います。</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>まとめ（10分）：</strong>今日書いた作品を並べて比較。次回の宿題と課題をお伝えします。</span></li>
+          </ul>
+
+          <h3>指導で大切にしていること</h3>
+          <p>「正解は一つではない」というのが洪先生の哲学です。古典の技法を丁寧に伝えながらも、生徒それぞれの個性や表現スタイルを尊重します。「こう書かなければいけない」というプレッシャーではなく、「もっとこう書いたら面白い」という好奇心を育てることを大切にしています。</p>
+          <p>お子様には集中力と達成感を。大人の方には豊かな時間と表現の喜びを。同じ教室でも、一人ひとりに合わせた「オーダーメイドの授業」を提供します。</p>
+
+          <h3>道具の選び方もサポート</h3>
+          <p>入会当初は全ての道具を無料で貸し出しします。慣れてきた頃に、その方の字の傾向や書体の好みに合わせた筆・硯・墨・紙をご提案。道具選びに迷う必要はありません。</p>
+        `
+      },
+
+      'beginner': {
+        title: '初心者の方へ',
+        subtitle: 'はじめての書道・よくある不安を解消',
+        icon: 'door-open',
+        content: `
+          <div class="modal-callout">
+            <p>「字が汚い」「不器用」——そんな心配は全く不要です。書道は練習すれば、必ず上達します。</p>
+          </div>
+
+          <h3>初めての方が感じる「3つの不安」</h3>
+          <ul>
+            <li><i data-lucide="message-circle" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i><span><strong>「字が下手すぎて恥ずかしい」</strong>——むしろ最初から上手い方はいません。ゼロから一緒に作り上げる喜びがあります。</span></li>
+            <li><i data-lucide="message-circle" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i><span><strong>「道具の使い方がわからない」</strong>——筆の持ち方・墨のすり方・紙の置き方、全て最初にお教えします。</span></li>
+            <li><i data-lucide="message-circle" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i><span><strong>「続けられるか不安」</strong>——マンツーマンで進度を調整するので、焦る必要はありません。</span></li>
+          </ul>
+
+          <h3>初心者カリキュラムの例（最初の3ヶ月）</h3>
+          <div class="modal-grid">
+            <div class="modal-grid-item">
+              <div class="label">1ヶ月目</div>
+              <div class="value">筆の持ち方・基本の点と線・「一」「二」「三」の書き方</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">2ヶ月目</div>
+              <div class="value">縦画・横画・はね・はらい。漢字一文字を美しく書く練習</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">3ヶ月目</div>
+              <div class="value">二文字・三文字の組み合わせ。バランスと間隔の取り方</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">3ヶ月後の目標</div>
+              <div class="value">好きな言葉を書いて、小さな作品として飾れるレベルに</div>
+            </div>
+          </div>
+
+          <h3>体験者の声</h3>
+          <p>「40年生きてきて初めて書道を習い始めました。最初は墨をこぼすわ、筆がふるえるわで散々でしたが、先生がとても丁寧に教えてくれて、今は毎週のレッスンが楽しみです」（40代女性）</p>
+          <p>「子どものころに習っていたけど20年以上ブランクがあり不安でした。でも手はちゃんと覚えていたようで、すぐに感覚が戻りました。初心者の方も安心して来られると思います」（50代男性）</p>
+
+          <h3>まずは無料体験レッスンを</h3>
+          <p>「向いているかどうか」は、やってみないとわかりません。道具は全てこちらでご用意しますので、手ぶらでお越しください。60分の体験で書道の楽しさを実感してみてください。</p>
+        `
+      },
+
+      'schedule-flex': {
+        title: '柔軟なスケジュール',
+        subtitle: 'あなたの生活に合わせたレッスン設計',
+        icon: 'calendar-check',
+        content: `
+          <div class="modal-callout">
+            <p>「仕事が不規則で通えるか心配」——そんな方こそ、当教室にお越しください。</p>
+          </div>
+
+          <h3>基本の開講時間</h3>
+          <ul>
+            <li><i data-lucide="clock" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>月・水・金：</strong>10:00〜 / 13:00〜 / 19:00〜（夜枠あり）</span></li>
+            <li><i data-lucide="clock" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>土曜日：</strong>10:00〜 / 13:00〜 / 15:00〜（休日にまとめて）</span></li>
+            <li><i data-lucide="clock" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>日曜日：</strong>10:00〜 / 13:00〜（要相談）</span></li>
+          </ul>
+
+          <h3>スケジュール調整の自由度</h3>
+          <p>マンツーマン制の最大のメリットは、スケジュールの柔軟さです。毎回同じ曜日・時間に通う必要はなく、その月の予定に合わせてレッスン日を決めることができます。</p>
+          <div class="modal-grid">
+            <div class="modal-grid-item">
+              <div class="label">こんな方に対応しています</div>
+              <div class="value">シフト制のお仕事の方、出張が多い方、子育て中の方、学生の方</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">上記以外の時間希望</div>
+              <div class="value">早朝・深夜以外はご相談に応じます。まずはお問い合わせを</div>
+            </div>
+          </div>
+
+          <h3>振替・欠席について</h3>
+          <ul>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>月内振替：</strong>当月内であれば無制限で振替可能。2日前までにご連絡ください。</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>急な欠席：</strong>体調不良などの突発的な欠席も柔軟に対応します。</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>翌月繰り越し：</strong>月をまたぐ振替はご相談ください（上限あり）。</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>長期休暇：</strong>出産・育児・転勤など、長期の休会制度もあります。</span></li>
+          </ul>
+
+          <h3>連絡方法</h3>
+          <p>振替・欠席の連絡はLINE・メール・電話いずれかでお受けしています。繁忙期でも迅速にご返信します。スケジュールの相談は入会前の体験レッスン時でも気軽にどうぞ。</p>
+        `
+      },
+
+      'exhibition': {
+        title: '展覧会への参加',
+        subtitle: '書道展出品のサポートについて',
+        icon: 'award',
+        content: `
+          <div class="modal-callout">
+            <p>「作品を人前に飾る」という体験が、書道をより深い喜びに変えます。</p>
+          </div>
+
+          <h3>参加できる展覧会・書道展</h3>
+          <ul>
+            <li><i data-lucide="star" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i><span><strong>全日本書道連盟展：</strong>毎年夏に開催。初心者部門から師範部門まで幅広い区分があります。</span></li>
+            <li><i data-lucide="star" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i><span><strong>地域の市民書道展：</strong>毎年秋、地元の文化センターで開催。生徒さんの作品を多数出品しています。</span></li>
+            <li><i data-lucide="star" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i><span><strong>洪明均書道サロン 小作品展：</strong>年に一度、教室独自のグループ展を開催。全生徒さんが対象です。</span></li>
+          </ul>
+
+          <h3>出品までのサポート体制</h3>
+          <p>展覧会への参加は任意ですが、参加される方には専用の指導プランを組んでいます。出品2〜3ヶ月前から課題作品の制作に集中し、用紙サイズ・書体選び・表装まで一貫してサポートします。</p>
+          <div class="modal-grid">
+            <div class="modal-grid-item">
+              <div class="label">3ヶ月前</div>
+              <div class="value">テーマ・書体・サイズを決定</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">2ヶ月前</div>
+              <div class="value">草稿づくり・繰り返し練習</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">1ヶ月前</div>
+              <div class="value">本番用紙で仕上げ練習・微調整</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">出品直前</div>
+              <div class="value">表装・落款・搬入手続きをサポート</div>
+            </div>
+          </div>
+
+          <h3>受賞歴・過去の実績</h3>
+          <p>当教室の生徒さんはこれまでに数多くの賞を受賞されています。「書道を始めてわずか1年で入選できた」という方もいらっしゃいます。先生自身も国内外の書道展で入選・受賞経験があり、展覧会の傾向や審査基準を熟知した指導が受けられます。</p>
+
+          <h3>参加は義務ではありません</h3>
+          <p>展覧会への出品は任意です。「趣味として楽しみたい」「人前に出るのは苦手」という方は、マイペースに続けていただけます。ただ、一度作品を展示する経験をすると、書道に対するモチベーションが大きく変わると多くの方がおっしゃいます。興味が出てきたら、いつでも相談してください。</p>
+        `
+      }
+    };
+
+    function initModal() {
+      const overlay   = document.getElementById('modal-overlay');
+      const container = document.getElementById('modal-container');
+      const closeBtn  = document.getElementById('modal-close');
+      const backdrop  = document.getElementById('modal-backdrop');
+      const ctaBtn    = document.getElementById('modal-cta');
+      let lastFocused = null;
+
+      function openModal(id) {
+        const data = modalData[id];
+        if (!data) return;
+
+        // Populate header
+        document.getElementById('modal-title').textContent    = data.title;
+        document.getElementById('modal-subtitle').textContent = data.subtitle;
+        document.getElementById('modal-icon-wrap').innerHTML  =
+          `<i data-lucide="${data.icon}" class="w-5 h-5 text-vermillion"></i>`;
+
+        // Populate body
+        document.getElementById('modal-body').innerHTML = data.content;
+
+        // Show overlay (transition kicks in next frame)
+        overlay.classList.add('modal-open');
+        document.body.style.overflow = 'hidden';
+
+        // Re-render Lucide icons inside modal
+        lucide.createIcons();
+
+        // Focus close button for accessibility
+        requestAnimationFrame(() => closeBtn.focus());
+      }
+
+      function closeModal() {
+        overlay.classList.remove('modal-open');
+        document.body.style.overflow = '';
+        if (lastFocused) lastFocused.focus();
+        lastFocused = null;
+      }
+
+      // Bind trigger elements
+      document.querySelectorAll('[data-modal-id]').forEach(el => {
+        el.addEventListener('click', () => {
+          lastFocused = el;
+          openModal(el.dataset.modalId);
+        });
+        // Keyboard: Enter / Space
+        el.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            lastFocused = el;
+            openModal(el.dataset.modalId);
+          }
+        });
+      });
+
+      // Close button
+      closeBtn.addEventListener('click', closeModal);
+
+      // Close on backdrop click (not on container click)
+      backdrop.addEventListener('click', closeModal);
+
+      // CTA closes modal before scrolling
+      ctaBtn.addEventListener('click', closeModal);
+
+      // Close on Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('modal-open')) {
+          closeModal();
+        }
+      });
+    }
+
     // ===== INIT ALL =====
     document.addEventListener('DOMContentLoaded', () => {
       initNavScroll();
@@ -1501,6 +1933,7 @@
       initLightbox();
       initContactForm();
       initScrollSpy();
+      initModal();
     });
   </script>
 
