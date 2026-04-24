@@ -490,9 +490,13 @@
         <!-- Course cards -->
         <div class="grid lg:grid-cols-3 gap-8">
 
-          <!-- 臨書コース -->
-          <div class="bg-parchment rounded-sm overflow-hidden hover:-translate-y-1 transition-transform duration-200" data-aos="fade-up" data-aos-delay="0">
-            <div class="h-1 bg-vermillion"></div>
+          <!-- 臨書コース：クリックでモーダル表示 -->
+          <div class="feature-card bg-parchment rounded-sm overflow-hidden hover:-translate-y-1 transition-transform duration-200 group"
+               data-aos="fade-up" data-aos-delay="0"
+               data-modal-id="course-rinsho"
+               role="button" tabindex="0"
+               aria-label="古典臨書コースの詳細を見る">
+            <div class="h-1 bg-vermillion group-hover:bg-vermillion-dark transition-colors"></div>
             <div class="p-8">
               <div class="text-6xl heading-serif font-light text-ink-light/20 mb-2" style="font-family: var(--font-serif);">臨</div>
               <h3 class="heading-serif text-xl font-medium mb-1" style="font-family: var(--font-serif);">古典臨書コース</h3>
@@ -514,16 +518,20 @@
                   <span>本格的な書道の技術を習得</span>
                 </li>
               </ul>
-              <a href="#contact" class="flex items-center gap-1 text-vermillion text-sm font-medium hover:gap-2 transition-all">
-                詳しく問い合わせる
+              <span class="inline-flex items-center gap-1 text-vermillion text-sm font-medium group-hover:gap-2 transition-all">
+                コースの詳細を見る
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </a>
+              </span>
             </div>
           </div>
 
-          <!-- 創作コース -->
-          <div class="bg-parchment rounded-sm overflow-hidden hover:-translate-y-1 transition-transform duration-200" data-aos="fade-up" data-aos-delay="150">
-            <div class="h-1 bg-vermillion"></div>
+          <!-- 創作コース：クリックでモーダル表示 -->
+          <div class="feature-card bg-parchment rounded-sm overflow-hidden hover:-translate-y-1 transition-transform duration-200 group"
+               data-aos="fade-up" data-aos-delay="150"
+               data-modal-id="course-sosaku"
+               role="button" tabindex="0"
+               aria-label="創作書道コースの詳細を見る">
+            <div class="h-1 bg-vermillion group-hover:bg-vermillion-dark transition-colors"></div>
             <div class="p-8">
               <div class="text-6xl heading-serif font-light text-ink-light/20 mb-2" style="font-family: var(--font-serif);">創</div>
               <h3 class="heading-serif text-xl font-medium mb-1" style="font-family: var(--font-serif);">創作書道コース</h3>
@@ -545,16 +553,20 @@
                   <span>個性豊かな表現力を育む</span>
                 </li>
               </ul>
-              <a href="#contact" class="flex items-center gap-1 text-vermillion text-sm font-medium hover:gap-2 transition-all">
-                詳しく問い合わせる
+              <span class="inline-flex items-center gap-1 text-vermillion text-sm font-medium group-hover:gap-2 transition-all">
+                コースの詳細を見る
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </a>
+              </span>
             </div>
           </div>
 
-          <!-- 実用コース -->
-          <div class="bg-parchment rounded-sm overflow-hidden hover:-translate-y-1 transition-transform duration-200" data-aos="fade-up" data-aos-delay="300">
-            <div class="h-1 bg-vermillion"></div>
+          <!-- 実用コース：クリックでモーダル表示 -->
+          <div class="feature-card bg-parchment rounded-sm overflow-hidden hover:-translate-y-1 transition-transform duration-200 group"
+               data-aos="fade-up" data-aos-delay="300"
+               data-modal-id="course-jitsuyo"
+               role="button" tabindex="0"
+               aria-label="実用書道コースの詳細を見る">
+            <div class="h-1 bg-vermillion group-hover:bg-vermillion-dark transition-colors"></div>
             <div class="p-8">
               <div class="text-6xl heading-serif font-light text-ink-light/20 mb-2" style="font-family: var(--font-serif);">実</div>
               <h3 class="heading-serif text-xl font-medium mb-1" style="font-family: var(--font-serif);">実用書道コース</h3>
@@ -576,10 +588,10 @@
                   <span>短期間で成果が出やすいカリキュラム</span>
                 </li>
               </ul>
-              <a href="#contact" class="flex items-center gap-1 text-vermillion text-sm font-medium hover:gap-2 transition-all">
-                詳しく問い合わせる
+              <span class="inline-flex items-center gap-1 text-vermillion text-sm font-medium group-hover:gap-2 transition-all">
+                コースの詳細を見る
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </a>
+              </span>
             </div>
           </div>
         </div>
@@ -1805,6 +1817,172 @@
 
           <h3>連絡方法</h3>
           <p>振替・欠席の連絡はLINE・メール・電話いずれかでお受けしています。繁忙期でも迅速にご返信します。スケジュールの相談は入会前の体験レッスン時でも気軽にどうぞ。</p>
+        `
+      },
+
+      'course-rinsho': {
+        title: '古典臨書コース',
+        subtitle: 'Classical Transcription',
+        icon: 'book-open',
+        content: `
+          <div class="modal-callout">
+            <p>古典とは、先人たちが命を懸けて磨き上げた「書の理想形」です。それを手でなぞることで、技術と感性が同時に育ちます。</p>
+          </div>
+
+          <h3>コースのねらい</h3>
+          <p>臨書とは、古典の名作を手本にして、その筆使い・字形・空間の取り方を忠実に学ぶ稽古法です。ただ「真似る」のではなく、なぜその線が美しいのかを分析しながら書くことで、自分の書に確かな根拠が生まれます。</p>
+          <p>当コースでは、楷書・行書・草書・仮名など幅広い書体を、段階を踏んで学んでいただけます。最初は楷書の基礎から始まり、習熟度に応じて行書・草書へとステップアップしていきます。</p>
+
+          <h3>学ぶ主な古典・手本</h3>
+          <ul>
+            <li><i data-lucide="scroll-text" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i><span><strong>九成宮醴泉銘（楷書）</strong>——唐の欧陽詢による楷書の最高峰。正確で緊張感のある字形を学びます。</span></li>
+            <li><i data-lucide="scroll-text" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i><span><strong>蘭亭序（行書）</strong>——王羲之の傑作。流れるような行書の美と余白の使い方を習得します。</span></li>
+            <li><i data-lucide="scroll-text" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i><span><strong>風信帖（行書・草書）</strong>——空海の書。日本的な余情と大陸書法の融合を体感します。</span></li>
+            <li><i data-lucide="scroll-text" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i><span><strong>高野切（仮名）</strong>——平安時代の仮名の美。連綿・散らし書きなど、和様書道の基礎を学びます。</span></li>
+          </ul>
+
+          <h3>レベル別の学習ステップ</h3>
+          <div class="modal-grid">
+            <div class="modal-grid-item">
+              <div class="label">入門（3〜6ヶ月）</div>
+              <div class="value">楷書の基本点画・永字八法・代表的な楷書古典の臨書</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">初級（6〜12ヶ月）</div>
+              <div class="value">楷書の習熟・行書入門・書体の違いと使い分けの理解</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">中級（1〜2年）</div>
+              <div class="value">行書・草書・仮名の並行学習・書風の個性を意識した臨書</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">上級（2年以上）</div>
+              <div class="value">複数の古典を融合した臨書・段位・師範取得に向けた作品制作</div>
+            </div>
+          </div>
+
+          <h3>段位・師範資格の取得について</h3>
+          <p>全日本書道連盟の審査制度に対応したカリキュラムを組んでいます。段位取得を希望される方には、審査の傾向・用紙規格・落款の付け方まで一貫してサポートします。師範資格を目指している方も、実績のある先生のもとで確実に力をつけることができます。</p>
+
+          <h3>こんな方におすすめ</h3>
+          <ul>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>書道を本格的に深めたい方</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>段位・師範取得を目指している方</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>古典の美しさに惹かれている方</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>創作書道の土台として技術を固めたい方</span></li>
+          </ul>
+        `
+      },
+
+      'course-sosaku': {
+        title: '創作書道コース',
+        subtitle: 'Creative Calligraphy',
+        icon: 'feather',
+        content: `
+          <div class="modal-callout">
+            <p>古典を学んだその先に、あなただけの「書」がある。自分の言葉を、自分の筆で表現する喜びを体験してください。</p>
+          </div>
+
+          <h3>コースのねらい</h3>
+          <p>創作書道コースは、古典臨書で培った技術を土台に、「自分の表現」を追求するコースです。既存の手本を模倣するのではなく、詩・言葉・心の動きを自らの感性で書き表すことを目指します。</p>
+          <p>「正しい書き方」よりも「伝わる書」を。構成・墨量・余白・紙の選び方など、一枚の作品を成立させるための総合的な感覚を磨きます。</p>
+
+          <h3>制作テーマの例</h3>
+          <ul>
+            <li><i data-lucide="pen-line" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>詩・短歌・俳句：</strong>古今の詩歌を素材に、言葉の余韻を書で表現します。</span></li>
+            <li><i data-lucide="pen-line" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>一文字作品：</strong>「風」「道」「想」など、一字に思いを込めた力強い作品。展覧会向けに人気のテーマです。</span></li>
+            <li><i data-lucide="pen-line" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>自作の言葉：</strong>自分で考えたメッセージや好きなフレーズを書にする、最もパーソナルな創作スタイル。</span></li>
+            <li><i data-lucide="pen-line" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>大字作品：</strong>大きな紙に少ない文字を大胆に配置する迫力のある書。展覧会の主力スタイルです。</span></li>
+          </ul>
+
+          <h3>作品制作の流れ</h3>
+          <div class="modal-grid">
+            <div class="modal-grid-item">
+              <div class="label">テーマ決め</div>
+              <div class="value">書きたい言葉・伝えたいイメージを先生と一緒に整理する</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">書体・構成の検討</div>
+              <div class="value">行書か草書か、縦組みか横組みか、紙の大きさと墨の濃淡</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">下書き・試作</div>
+              <div class="value">何枚も書いて比較。「これだ」という一枚を探す過程が醍醐味</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">仕上げ・落款</div>
+              <div class="value">本番用紙で清書し、落款（署名・印）を入れて完成</div>
+            </div>
+          </div>
+
+          <h3>展覧会への出品サポート</h3>
+          <p>創作書道コースの生徒さんは、毎年開催される書道展への出品を積極的にサポートしています。「作品を人前に飾る」という経験は、書道への向き合い方を大きく変えます。出品は任意ですが、多くの方が挑戦し、入選・受賞の喜びを体験されています。</p>
+
+          <h3>受講のながれ・前提知識</h3>
+          <p>創作書道コースは、書道経験者（他教室出身の方も歓迎）を主な対象としています。ただし、基礎から始めたい方は入門期間として臨書コースと並行受講することも可能です。まずはご相談ください。</p>
+
+          <h3>こんな方におすすめ</h3>
+          <ul>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>自分だけの表現を探している方</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>展覧会に作品を出してみたい方</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>書道経験があり、より深めたい方</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>アートとして書道を楽しみたい方</span></li>
+          </ul>
+        `
+      },
+
+      'course-jitsuyo': {
+        title: '実用書道コース',
+        subtitle: 'Practical Writing',
+        icon: 'edit-3',
+        content: `
+          <div class="modal-callout">
+            <p>「美しい字を書きたい」——その動機は、最もシンプルで、最も強い上達の原動力です。</p>
+          </div>
+
+          <h3>コースのねらい</h3>
+          <p>実用書道コースは、日常生活の中で「美しい字を書く」ことを目標にした実践的なコースです。芸術作品の制作ではなく、年賀状・ご祝儀袋・署名・手紙など、毎日の場面で役立つ書字力を身につけます。</p>
+          <p>短期間で実感できる変化を重視したカリキュラムで、「3ヶ月で字が変わった」という声を多くいただいています。難しい古典知識は最小限にとどめ、実践的な文字美の原則を効率よく学びます。</p>
+
+          <h3>学べる実用場面</h3>
+          <ul>
+            <li><i data-lucide="mail" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>年賀状・お礼状：</strong>宛名書き・本文・一言添え書き。手書きの温かみを伝える書き方を練習します。</span></li>
+            <li><i data-lucide="mail" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>のし袋・ご祝儀袋：</strong>結婚・出産・弔事など、シーン別の正しい書き方と字の配置を習得します。</span></li>
+            <li><i data-lucide="mail" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>芳名帳・記帳：</strong>冠婚葬祭の場で恥ずかしくない、品のある署名の書き方を練習します。</span></li>
+            <li><i data-lucide="mail" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>ビジネス文書・メモ：</strong>読みやすく、整然とした文字で信頼感を高めます。</span></li>
+            <li><i data-lucide="mail" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span><strong>筆ペン・サインペン対応：</strong>毛筆だけでなく、筆ペンや硬筆での美文字も練習できます。</span></li>
+          </ul>
+
+          <h3>3ヶ月カリキュラム（例）</h3>
+          <div class="modal-grid">
+            <div class="modal-grid-item">
+              <div class="label">1ヶ月目</div>
+              <div class="value">基本の姿勢・筆圧・線の引き方。ひらがな50音の美しい書き方</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">2ヶ月目</div>
+              <div class="value">漢字の字形・とめ・はね・はらい。名前と住所を美しく書く練習</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">3ヶ月目</div>
+              <div class="value">のし袋・年賀状・芳名帳など実際の場面を想定した実践練習</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">3ヶ月後の目標</div>
+              <div class="value">日常の書字に自信が持てる。人前で手書きを見せることが恥ずかしくない</div>
+            </div>
+          </div>
+
+          <h3>硬筆・筆ペンにも対応</h3>
+          <p>毛筆（筆と硯を使った本格的な書道）を基本としていますが、ご希望の方には筆ペン・ボールペン・万年筆など硬筆での練習も取り入れます。「職場でのメモ字を改善したい」「サインをかっこよくしたい」という方にも対応可能です。</p>
+
+          <h3>こんな方におすすめ</h3>
+          <ul>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>年賀状・ご祝儀袋を美しく書きたい方</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>字のコンプレックスを克服したい方</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>短期間で実感できる変化を求めている方</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>書道は本格的でなくてよい、まず字を綺麗にしたい方</span></li>
+          </ul>
         `
       },
 
