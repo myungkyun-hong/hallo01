@@ -483,12 +483,12 @@
         <div class="text-center mb-16" data-aos="fade-up">
           <span class="text-gold text-sm tracking-widest uppercase">Courses</span>
           <h2 class="heading-serif text-3xl lg:text-4xl font-light mt-3 mb-4" style="font-family: var(--font-serif);">コースのご紹介</h2>
-          <p class="text-sumi">目標に合わせて選べる3つのコース</p>
+          <p class="text-sumi">目標に合わせて選べる4つのコース</p>
           <div class="gold-divider mt-4"></div>
         </div>
 
         <!-- Course cards -->
-        <div class="grid lg:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
 
           <!-- 臨書コース：クリックでモーダル表示 -->
           <div class="feature-card bg-parchment rounded-sm overflow-hidden hover:-translate-y-1 transition-transform duration-200 group"
@@ -594,6 +594,42 @@
               </span>
             </div>
           </div>
+
+          <!-- ハングル書道コース：クリックでモーダル表示 -->
+          <div class="feature-card bg-parchment rounded-sm overflow-hidden hover:-translate-y-1 transition-transform duration-200 group"
+               data-aos="fade-up" data-aos-delay="450"
+               data-modal-id="course-hangul"
+               role="button" tabindex="0"
+               aria-label="ハングル書道コースの詳細を見る">
+            <div class="h-1 bg-gold group-hover:bg-gold/70 transition-colors"></div>
+            <div class="p-8">
+              <div class="text-6xl heading-serif font-light text-ink-light/20 mb-2" style="font-family: var(--font-serif);">韓</div>
+              <h3 class="heading-serif text-xl font-medium mb-1" style="font-family: var(--font-serif);">ハングル書道コース</h3>
+              <p class="text-gold text-sm mb-5 tracking-wide">Korean Calligraphy</p>
+              <p class="text-sumi text-sm leading-relaxed mb-6">
+                朝鮮半島固有の文字「ハングル」を、毛筆で美しく表現します。日本語と異なる造形美を学び、異文化への理解と書の幅を広げます。
+              </p>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start gap-2 text-sm text-sumi">
+                  <i data-lucide="check" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i>
+                  <span>ハングルの構造と筆使いを基礎から学ぶ</span>
+                </li>
+                <li class="flex items-start gap-2 text-sm text-sumi">
+                  <i data-lucide="check" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i>
+                  <span>韓国の古典書道・ソンビ体なども学習</span>
+                </li>
+                <li class="flex items-start gap-2 text-sm text-sumi">
+                  <i data-lucide="check" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i>
+                  <span>日本語書道との違いを楽しみながら習得</span>
+                </li>
+              </ul>
+              <span class="inline-flex items-center gap-1 text-vermillion text-sm font-medium group-hover:gap-2 transition-all">
+                コースの詳細を見る
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -2096,6 +2132,60 @@
           </ul>
 
           <p style="margin-top:1.5rem; font-size:0.85rem; color:var(--color-sumi);">体験後の入会は任意です。少しでも気になった方は、下のボタンからお気軽にお申し込みください。</p>
+        `
+      },
+
+      'course-hangul': {
+        title: 'ハングル書道コース',
+        subtitle: 'Korean Calligraphy',
+        icon: 'languages',
+        content: `
+          <div class="modal-callout">
+            <p>ハングルは、世界で唯一「デザインされた文字」として知られています。その幾何学的な美しさを、毛筆という日本の伝統的な道具で表現するとき、まったく新しい書の喜びが生まれます。</p>
+          </div>
+
+          <h3>ハングル書道とは</h3>
+          <p>ハングル（한글）は1443年に朝鮮王朝第4代国王・世宗大王によって制定された表音文字です。子音字と母音字を組み合わせて音節を構成するその造形は、縦・横・円の要素が美しく調和しており、毛筆で書くと独特の造形美を生み出します。</p>
+          <p>当教室の講師・洪明均は韓国出身であり、幼少期からハングルに親しみ、日本の書道との融合を長年研究してきました。両文化にまたがる視点から、他では学べない質の高い指導を提供します。</p>
+
+          <h3>学べる書体・スタイル</h3>
+          <ul>
+            <li><i data-lucide="scroll-text" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i><span><strong>ソンビ体（선비체）：</strong>朝鮮時代の士大夫が好んだ端正な楷書スタイル。ハングル書道の基礎として最初に学びます。</span></li>
+            <li><i data-lucide="scroll-text" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i><span><strong>宮体（궁체）：</strong>宮廷の女官たちが洗練させた流麗な行書風の書体。柔らかな曲線と繊細な筆使いが特徴です。</span></li>
+            <li><i data-lucide="scroll-text" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i><span><strong>現代ハングル書道：</strong>伝統的な書体をベースに、自由な感性で表現する現代的なスタイル。詩や言葉を作品として仕上げます。</span></li>
+            <li><i data-lucide="scroll-text" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i><span><strong>日韓コラボ作品：</strong>漢字・仮名・ハングルを組み合わせた、当教室ならではの創作書道にも挑戦できます。</span></li>
+          </ul>
+
+          <h3>カリキュラムの流れ</h3>
+          <div class="modal-grid">
+            <div class="modal-grid-item">
+              <div class="label">入門（1〜2ヶ月）</div>
+              <div class="value">子音14字・母音10字の習得。基本の点画と筆運びを練習</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">初級（3〜5ヶ月）</div>
+              <div class="value">母音・子音の組み合わせ。短い単語や自分の名前を美しく書く</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">中級（6〜12ヶ月）</div>
+              <div class="value">宮体の基礎。詩・格言など短文の作品制作に挑戦</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">上級（12ヶ月〜）</div>
+              <div class="value">古典の臨書・現代創作・日韓融合作品の制作。展覧会出品も視野に</div>
+            </div>
+          </div>
+
+          <h3>こんな方におすすめ</h3>
+          <ul>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>K-POPや韓国文化が好きで、ハングルを深く学びたい方</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>韓国旅行・韓国語学習のきっかけとしてハングルを書いてみたい方</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>日本語書道を学んでいて、異文化の書道にも挑戦したい方</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>韓国にゆかりがあり、プレゼント用の作品を作りたい方</span></li>
+          </ul>
+
+          <h3>料金・スケジュール</h3>
+          <p>料金・開講時間は他のコースと同じです（月謝制・マンツーマン・60分/回）。日本語書道コースとの並行受講も歓迎します。詳しくは「日程・料金」セクション、またはお問い合わせフォームをご確認ください。</p>
         `
       }
     };
