@@ -276,7 +276,7 @@
           <li><a href="#beginners" class="nav-link hover:text-yellow-200 transition-colors">初心者の方へ</a></li>
           <li><a href="#schedule" class="nav-link hover:text-yellow-200 transition-colors">日程・料金</a></li>
           <li><a href="#gallery" class="nav-link hover:text-yellow-200 transition-colors">ギャラリー</a></li>
-          <li><a href="#contact" class="bg-vermillion hover:bg-vermillion-dark text-white px-4 py-2 rounded-sm text-sm transition-colors">無料体験</a></li>
+          <li><a href="#" data-modal-id="trial" class="bg-vermillion hover:bg-vermillion-dark text-white px-4 py-2 rounded-sm text-sm transition-colors">無料体験</a></li>
         </ul>
 
         <!-- Mobile hamburger button -->
@@ -301,7 +301,7 @@
           <li><a href="#beginners" class="mobile-nav-link block px-4 py-3 hover:bg-white/10 rounded transition-colors">初心者の方へ</a></li>
           <li><a href="#schedule" class="mobile-nav-link block px-4 py-3 hover:bg-white/10 rounded transition-colors">日程・料金</a></li>
           <li><a href="#gallery" class="mobile-nav-link block px-4 py-3 hover:bg-white/10 rounded transition-colors">ギャラリー</a></li>
-          <li><a href="#contact" class="mobile-nav-link block mx-4 mt-2 bg-vermillion hover:bg-vermillion-dark text-center py-3 rounded transition-colors">無料体験申し込み</a></li>
+          <li><a href="#" data-modal-id="trial" class="mobile-nav-link block mx-4 mt-2 bg-vermillion hover:bg-vermillion-dark text-center py-3 rounded transition-colors">無料体験申し込み</a></li>
         </ul>
       </div>
     </nav>
@@ -333,7 +333,7 @@
           子どもから大人まで、墨の世界へようこそ
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center animate__animated animate__fadeIn animate__delay-2s">
-          <a href="#contact" class="bg-vermillion hover:bg-vermillion-dark text-white px-8 py-4 rounded-sm text-base transition-all hover:-translate-y-0.5 hover:shadow-lg font-medium">
+          <a href="#" data-modal-id="trial" class="bg-vermillion hover:bg-vermillion-dark text-white px-8 py-4 rounded-sm text-base transition-all hover:-translate-y-0.5 hover:shadow-lg font-medium">
             無料体験に申し込む
           </a>
           <a href="#courses" class="border border-white/70 hover:border-white text-white hover:bg-white/10 px-8 py-4 rounded-sm text-base transition-all font-medium">
@@ -1376,7 +1376,7 @@
             </li>
           </ul>
           <!-- Free trial CTA -->
-          <a href="#contact" class="mt-6 inline-block bg-vermillion hover:bg-vermillion-dark text-white text-xs px-5 py-2.5 rounded-sm transition-colors">
+          <a href="#" data-modal-id="trial" class="mt-6 inline-block bg-vermillion hover:bg-vermillion-dark text-white text-xs px-5 py-2.5 rounded-sm transition-colors">
             無料体験を申し込む
           </a>
         </div>
@@ -2029,6 +2029,74 @@
           <h3>参加は義務ではありません</h3>
           <p>展覧会への出品は任意です。「趣味として楽しみたい」「人前に出るのは苦手」という方は、マイペースに続けていただけます。ただ、一度作品を展示する経験をすると、書道に対するモチベーションが大きく変わると多くの方がおっしゃいます。興味が出てきたら、いつでも相談してください。</p>
         `
+      },
+
+      'trial': {
+        title: '無料体験レッスン',
+        subtitle: 'はじめての方への60分体験',
+        icon: 'pen-line',
+        content: `
+          <div class="modal-callout">
+            <p>「向いているかどうか」は、やってみないとわかりません。まずは気軽に60分、墨と筆の世界を体感してみてください。</p>
+          </div>
+
+          <h3>体験レッスンでできること</h3>
+          <ul>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>筆の持ち方・墨の磨り方など、書道の基本をゼロから学べます</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>好きな字や言葉を実際に書く体験ができます</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>教室の雰囲気・先生との相性を直接確かめられます</span></li>
+            <li><i data-lucide="check-circle" class="w-4 h-4 text-vermillion shrink-0 mt-0.5"></i><span>コースや料金についても、その場で詳しくご説明します</span></li>
+          </ul>
+
+          <h3>体験レッスンの流れ（60分）</h3>
+          <div class="modal-grid">
+            <div class="modal-grid-item">
+              <div class="label">最初の10分</div>
+              <div class="value">書道との出会い・ご自身の目標ヒアリング。墨をすって心を落ち着けます</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">中盤（35分）</div>
+              <div class="value">筆の持ち方から基本の線・点を練習。最後に好きな文字を一枚書き上げます</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">仕上げ（15分）</div>
+              <div class="value">書いた作品を一緒に振り返り。今後の上達イメージや継続のご案内をします</div>
+            </div>
+          </div>
+
+          <h3>準備するものは何もありません</h3>
+          <p>筆・硯・墨・紙など、書道に必要な道具はすべてこちらでご用意します。動きやすい服装でお越しいただければ、それだけで大丈夫です。</p>
+
+          <h3>体験レッスンの料金</h3>
+          <div class="modal-grid">
+            <div class="modal-grid-item">
+              <div class="label">体験料金</div>
+              <div class="value"><strong>無料</strong>（完全無料・入会の義務なし）</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">所要時間</div>
+              <div class="value">約60分（前後の余裕をお持ちください）</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">場所</div>
+              <div class="value">教室（お申し込み後に詳細をご連絡します）</div>
+            </div>
+            <div class="modal-grid-item">
+              <div class="label">定員</div>
+              <div class="value">各回1名（完全マンツーマン）</div>
+            </div>
+          </div>
+
+          <h3>こんな方にぴったりです</h3>
+          <ul>
+            <li><i data-lucide="user-check" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i><span>書道をやってみたいけれど、最初の一歩が踏み出せない方</span></li>
+            <li><i data-lucide="user-check" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i><span>子どものころに習っていて、再開を検討している方</span></li>
+            <li><i data-lucide="user-check" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i><span>お子様に習わせたいが、まず雰囲気を見たい保護者の方</span></li>
+            <li><i data-lucide="user-check" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i><span>他の教室で合わなかった経験があり、慎重に選びたい方</span></li>
+          </ul>
+
+          <p style="margin-top:1.5rem; font-size:0.85rem; color:var(--color-sumi);">体験後の入会は任意です。少しでも気になった方は、下のボタンからお気軽にお申し込みください。</p>
+        `
       }
     };
 
@@ -2073,7 +2141,8 @@
 
       // Bind trigger elements
       document.querySelectorAll('[data-modal-id]').forEach(el => {
-        el.addEventListener('click', () => {
+        el.addEventListener('click', (e) => {
+          e.preventDefault();
           lastFocused = el;
           openModal(el.dataset.modalId);
         });
