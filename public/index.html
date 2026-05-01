@@ -246,6 +246,57 @@
       border: 2px solid var(--color-vermillion);
       position: relative;
     }
+
+    /* ===== Calendar System ===== */
+    .cal-day-available {
+      cursor: pointer;
+      transition: background 120ms ease;
+    }
+    .cal-day-available:hover {
+      background: var(--color-cream);
+    }
+    .cal-day-available .cal-num {
+      background: white;
+      border: 1px solid var(--color-mist);
+      color: var(--color-ink);
+      font-weight: 600;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    }
+    .cal-day-unavailable {
+      cursor: not-allowed;
+    }
+    .cal-day-unavailable .cal-num {
+      background: #f3f4f6;
+      color: #9ca3af;
+    }
+    .cal-day-past {
+      cursor: default;
+    }
+    .cal-day-selected {
+      background: #fef2f2;
+    }
+    .cal-day-selected .cal-num {
+      background: var(--color-vermillion) !important;
+      color: white !important;
+      border-color: var(--color-vermillion) !important;
+      box-shadow: 0 2px 6px rgba(192,57,43,0.35) !important;
+    }
+    .time-slot-btn {
+      border: 1px solid rgba(192,57,43,0.4);
+      border-radius: 2px;
+      padding: 0.4rem 1rem;
+      font-size: 0.875rem;
+      color: var(--color-vermillion);
+      background: transparent;
+      cursor: pointer;
+      transition: background 120ms ease, color 120ms ease;
+    }
+    .time-slot-btn:hover,
+    .time-slot-btn.selected {
+      background: var(--color-vermillion);
+      color: white;
+      border-color: var(--color-vermillion);
+    }
   </style>
 
   <!-- Hero title: Zen Kurenaido 行書風フォント -->
@@ -757,56 +808,64 @@
         <div class="text-center mb-16" data-aos="fade-up">
           <span class="text-gold text-sm tracking-widest uppercase">Schedule &amp; Pricing</span>
           <h2 class="heading-serif text-3xl lg:text-4xl font-light mt-3 mb-4" style="font-family: var(--font-serif);">レッスン日程・料金</h2>
-          <div class="gold-divider"></div>
+          <p class="text-sumi text-sm mt-2">フレキシブル制・完全マンツーマン。ご都合に合わせて自由に日程をお選びください。</p>
+          <div class="gold-divider mt-4"></div>
         </div>
 
         <div class="grid lg:grid-cols-2 gap-12 items-start">
 
-          <!-- Schedule table -->
+          <!-- ── 予約カレンダー ── -->
           <div data-aos="fade-right">
-            <h3 class="heading-serif text-xl font-medium mb-6 flex items-center gap-2" style="font-family: var(--font-serif);">
-              <i data-lucide="clock" class="w-5 h-5 text-vermillion"></i>
-              開講日時
+            <h3 class="heading-serif text-xl font-medium mb-1 flex items-center gap-2" style="font-family: var(--font-serif);">
+              <i data-lucide="calendar-check" class="w-5 h-5 text-vermillion"></i>
+              予約カレンダー
             </h3>
-            <div class="overflow-hidden rounded-sm border border-mist">
-              <table class="w-full text-sm">
-                <thead>
-                  <tr class="bg-ink text-white">
-                    <th class="text-left px-5 py-3 font-medium">曜日</th>
-                    <th class="text-left px-5 py-3 font-medium">開講時間</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="bg-cream">
-                    <td class="px-5 py-3 text-sumi">月曜日</td>
-                    <td class="px-5 py-3 text-sumi">10:00〜 / 13:00〜 / 19:00〜</td>
-                  </tr>
-                  <tr class="bg-parchment">
-                    <td class="px-5 py-3 text-sumi">水曜日</td>
-                    <td class="px-5 py-3 text-sumi">10:00〜 / 13:00〜 / 19:00〜</td>
-                  </tr>
-                  <tr class="bg-cream">
-                    <td class="px-5 py-3 text-sumi">金曜日</td>
-                    <td class="px-5 py-3 text-sumi">10:00〜 / 13:00〜 / 19:00〜</td>
-                  </tr>
-                  <tr class="bg-parchment">
-                    <td class="px-5 py-3 text-sumi">土曜日</td>
-                    <td class="px-5 py-3 text-sumi">10:00〜 / 13:00〜 / 15:00〜</td>
-                  </tr>
-                  <tr class="bg-cream">
-                    <td class="px-5 py-3 text-sumi">日曜日</td>
-                    <td class="px-5 py-3 text-sumi">10:00〜 / 13:00〜（要相談）</td>
-                  </tr>
-                </tbody>
-              </table>
+            <p class="text-sumi text-sm mb-5">ご希望の日をクリックして、予約可能な時間帯をご確認ください。</p>
+
+            <!-- Legend -->
+            <div class="flex flex-wrap items-center gap-x-5 gap-y-2 mb-5 text-xs text-sumi">
+              <div class="flex items-center gap-1.5">
+                <span class="inline-flex w-6 h-6 rounded-full border border-mist bg-white shadow-sm items-center justify-center text-[10px] font-bold text-ink">1</span>
+                <span>予約可能</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="inline-flex w-6 h-6 rounded-full bg-gray-100 items-center justify-center text-[10px] text-gray-400">1</span>
+                <span>予約不可・満席</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="inline-flex w-6 h-6 rounded-full bg-vermillion items-center justify-center text-[10px] font-bold text-white">1</span>
+                <span>選択中</span>
+              </div>
             </div>
-            <p class="text-sumi text-xs mt-3 flex items-start gap-1.5">
-              <i data-lucide="info" class="w-3.5 h-3.5 text-gold shrink-0 mt-0.5"></i>
-              スケジュールはご相談の上、柔軟に対応します。上記以外の時間をご希望の場合もお気軽にご相談ください。
-            </p>
+
+            <!-- Calendars (rendered by JS) -->
+            <div id="calendars-container" class="space-y-4"></div>
+
+            <!-- Time slots panel (shown on date click) -->
+            <div id="time-slots-panel" class="hidden mt-5 p-5 bg-parchment border border-mist rounded-sm">
+              <h4 class="heading-serif text-base font-medium mb-3 flex items-center gap-2" style="font-family: var(--font-serif);">
+                <i data-lucide="clock" class="w-4 h-4 text-vermillion"></i>
+                <span id="selected-date-label"></span> の予約可能時間
+              </h4>
+              <div id="time-slots-grid" class="flex flex-wrap gap-2"></div>
+              <!-- CTA after time selection -->
+              <div id="time-cta" class="hidden mt-4 p-3 bg-white border border-vermillion/30 rounded-sm">
+                <p class="text-sm text-sumi mb-2">
+                  <strong class="text-ink" id="time-cta-text"></strong> でご予約を承ります。
+                </p>
+                <a href="#contact" class="inline-flex items-center gap-1.5 text-sm text-vermillion font-medium hover:underline">
+                  <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                  お問い合わせフォームへ進む
+                </a>
+              </div>
+              <p class="text-sumi text-xs mt-3 flex items-start gap-1.5">
+                <i data-lucide="info" class="w-3.5 h-3.5 text-gold shrink-0 mt-0.5"></i>
+                時間帯を選択後、下のお問い合わせフォームからご予約ください。
+              </p>
+            </div>
           </div>
 
-          <!-- Pricing -->
+          <!-- ── 料金 ── -->
           <div data-aos="fade-left">
             <h3 class="heading-serif text-xl font-medium mb-6 flex items-center gap-2" style="font-family: var(--font-serif);">
               <i data-lucide="tag" class="w-5 h-5 text-vermillion"></i>
@@ -2263,6 +2322,164 @@
       });
     }
 
+    // ===== CALENDAR SYSTEM =====
+    function initCalendar() {
+      // Lesson days: 0=Sun, 1=Mon, 3=Wed, 5=Fri, 6=Sat
+      const AVAILABLE_DAYS = new Set([0, 1, 3, 5, 6]);
+
+      // Time slots per day of week
+      const TIME_SLOTS = {
+        0: ['10:00', '13:00'],
+        1: ['10:00', '13:00', '19:00'],
+        3: ['10:00', '13:00', '19:00'],
+        5: ['10:00', '13:00', '19:00'],
+        6: ['10:00', '13:00', '15:00'],
+      };
+
+      // Holidays and pre-booked dates (YYYY-MM-DD)
+      const BLOCKED = new Set([
+        '2026-05-03', '2026-05-04', '2026-05-06',
+        '2026-05-13', '2026-05-16', '2026-05-23', '2026-05-30',
+        '2026-06-07', '2026-06-14', '2026-06-20', '2026-06-27',
+      ]);
+
+      const DAY_NAMES   = ['日','月','火','水','木','金','土'];
+      const MONTH_NAMES = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      let selectedCell = null;
+
+      function pad(n) { return String(n).padStart(2, '0'); }
+      function toStr(d) { return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; }
+
+      function isAvailable(date) {
+        if (date <= today) return false;
+        if (!AVAILABLE_DAYS.has(date.getDay())) return false;
+        return !BLOCKED.has(toStr(date));
+      }
+
+      function renderCalendar(year, month) {
+        const firstDay  = new Date(year, month, 1);
+        const totalDays = new Date(year, month + 1, 0).getDate();
+        const startDow  = firstDay.getDay();
+
+        let html = `<div class="bg-white border border-mist rounded-sm overflow-hidden shadow-sm">`;
+
+        // Month header
+        html += `<div class="bg-ink text-white text-center py-3 px-4">
+          <span class="text-sm font-medium" style="font-family:var(--font-serif);">${year}年 ${MONTH_NAMES[month]}</span>
+        </div>`;
+
+        // Day name row
+        html += `<div class="grid grid-cols-7 bg-parchment border-b border-mist text-xs text-center">`;
+        DAY_NAMES.forEach((d, i) => {
+          const c = i === 0 ? 'text-red-500' : i === 6 ? 'text-blue-500' : 'text-sumi';
+          html += `<div class="py-1.5 font-medium ${c}">${d}</div>`;
+        });
+        html += `</div>`;
+
+        // Day cells
+        html += `<div class="grid grid-cols-7">`;
+
+        // Leading empty cells
+        for (let i = 0; i < startDow; i++) {
+          html += `<div class="border-b border-r border-mist/40 flex items-center justify-center py-1.5 min-h-[38px] bg-gray-50/40"></div>`;
+        }
+
+        for (let d = 1; d <= totalDays; d++) {
+          const date  = new Date(year, month, d);
+          const dow   = date.getDay();
+          const avail = isAvailable(date);
+          const isPast = date <= today;
+
+          let cellCls = 'border-b border-r border-mist/40 flex items-center justify-center py-1.5 min-h-[38px] ';
+          let numCls  = 'w-7 h-7 flex items-center justify-center rounded-full text-xs cal-num ';
+          let attrs   = '';
+
+          if (avail) {
+            cellCls += 'cal-day-available';
+            attrs = `data-date="${toStr(date)}" data-dow="${dow}"`;
+            if (dow === 0) numCls += 'text-red-500';
+            else if (dow === 6) numCls += 'text-blue-500';
+          } else if (isPast) {
+            cellCls += 'cal-day-past';
+            numCls   = 'w-7 h-7 flex items-center justify-center rounded-full text-xs text-gray-300';
+          } else {
+            cellCls += 'cal-day-unavailable';
+            if (dow === 0) numCls += 'text-red-300';
+            else if (dow === 6) numCls += 'text-blue-300';
+          }
+
+          html += `<div class="${cellCls}" ${attrs}><span class="${numCls}">${d}</span></div>`;
+        }
+
+        // Trailing empty cells
+        const lastDow = (startDow + totalDays - 1) % 7;
+        if (lastDow < 6) {
+          for (let i = lastDow + 1; i <= 6; i++) {
+            html += `<div class="border-b border-r border-mist/40 flex items-center justify-center py-1.5 min-h-[38px] bg-gray-50/40"></div>`;
+          }
+        }
+
+        html += `</div></div>`;
+        return html;
+      }
+
+      function showTimeSlots(dateStr, dow) {
+        const panel = document.getElementById('time-slots-panel');
+        const label = document.getElementById('selected-date-label');
+        const grid  = document.getElementById('time-slots-grid');
+        const cta   = document.getElementById('time-cta');
+
+        const [y, m, d] = dateStr.split('-');
+        label.textContent = `${y}年${parseInt(m)}月${parseInt(d)}日（${DAY_NAMES[dow]}）`;
+
+        const slots = TIME_SLOTS[dow] || [];
+        grid.innerHTML = slots.map(t =>
+          `<button class="time-slot-btn" data-time="${t}">${t}〜</button>`
+        ).join('');
+
+        cta.classList.add('hidden');
+        panel.classList.remove('hidden');
+        panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+        // Re-render Lucide icons inside the panel
+        if (window.lucide) lucide.createIcons({ nameAttr: 'data-lucide', attrs: { 'stroke-width': 1.5 } });
+
+        grid.querySelectorAll('.time-slot-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            grid.querySelectorAll('.time-slot-btn').forEach(b => b.classList.remove('selected'));
+            this.classList.add('selected');
+            const [y2, m2, d2] = dateStr.split('-');
+            document.getElementById('time-cta-text').textContent =
+              `${y2}年${parseInt(m2)}月${parseInt(d2)}日（${DAY_NAMES[dow]}） ${this.dataset.time}〜`;
+            cta.classList.remove('hidden');
+          });
+        });
+      }
+
+      const container = document.getElementById('calendars-container');
+      if (!container) return;
+
+      const now = new Date();
+      const y0  = now.getFullYear(), m0 = now.getMonth();
+      const m1  = (m0 + 1) % 12;
+      const y1  = m0 === 11 ? y0 + 1 : y0;
+
+      container.innerHTML = renderCalendar(y0, m0) + renderCalendar(y1, m1);
+
+      container.addEventListener('click', function(e) {
+        const cell = e.target.closest('.cal-day-available');
+        if (!cell) return;
+        if (selectedCell) selectedCell.classList.remove('cal-day-selected');
+        selectedCell = cell;
+        cell.classList.add('cal-day-selected');
+        showTimeSlots(cell.dataset.date, parseInt(cell.dataset.dow));
+      });
+    }
+
     // ===== INIT ALL =====
     document.addEventListener('DOMContentLoaded', () => {
       initNavScroll();
@@ -2271,6 +2488,7 @@
       initContactForm();
       initScrollSpy();
       initModal();
+      initCalendar();
     });
   </script>
 
